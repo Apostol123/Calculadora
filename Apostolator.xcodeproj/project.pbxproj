@@ -33,6 +33,9 @@
 		CB9564D82BF881B200497258 /* ApostolatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApostolatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9564DC2BF881B200497258 /* ApostolatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorTests.swift; sourceTree = "<group>"; };
 		CB9564F52BF8825D00497258 /* Apostolator.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Apostolator.xctestplan; sourceTree = "<group>"; };
+		CB9564F72BF8862700497258 /* UIComposer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIComposer; sourceTree = "<group>"; };
+		CB9564F82BF886AF00497258 /* Engine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Engine; sourceTree = "<group>"; };
+		CB9564F92BF886F900497258 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 		CB9564CA2BF881B100497258 /* Apostolator */ = {
 			isa = PBXGroup;
 			children = (
+				CB9564F62BF885F000497258 /* Features */,
 				CB9564CB2BF881B100497258 /* ApostolatorApp.swift */,
 				CB9564CD2BF881B100497258 /* ContentView.swift */,
 				CB9564CF2BF881B200497258 /* Assets.xcassets */,
@@ -97,6 +101,16 @@
 				CB9564DC2BF881B200497258 /* ApostolatorTests.swift */,
 			);
 			path = ApostolatorTests;
+			sourceTree = "<group>";
+		};
+		CB9564F62BF885F000497258 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				CB9564F92BF886F900497258 /* DesignSystem */,
+				CB9564F82BF886AF00497258 /* Engine */,
+				CB9564F72BF8862700497258 /* UIComposer */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
