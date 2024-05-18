@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "0116A2D6-847B-44CE-8941-3DEC83CCFC7E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Apostolator.xcodeproj",
+      "identifier" : "CB9564C72BF881B100497258",
+      "name" : "Apostolator"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Apostolator.xcodeproj",
+        "identifier" : "CB9564D72BF881B200497258",
+        "name" : "ApostolatorTests"
+      }
+    }
+  ],
+  "version" : 1
+}

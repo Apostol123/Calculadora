@@ -12,19 +12,10 @@
 		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
 		CB9564D32BF881B200497258 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564D22BF881B200497258 /* Preview Assets.xcassets */; };
 		CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564DC2BF881B200497258 /* ApostolatorTests.swift */; };
-		CB9564E72BF881B200497258 /* ApostolatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564E62BF881B200497258 /* ApostolatorUITests.swift */; };
-		CB9564E92BF881B200497258 /* ApostolatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564E82BF881B200497258 /* ApostolatorUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		CB9564D92BF881B200497258 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CB9564C02BF881B100497258 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CB9564C72BF881B100497258;
-			remoteInfo = Apostolator;
-		};
-		CB9564E32BF881B200497258 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CB9564C02BF881B100497258 /* Project object */;
 			proxyType = 1;
@@ -41,9 +32,7 @@
 		CB9564D22BF881B200497258 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB9564D82BF881B200497258 /* ApostolatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApostolatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9564DC2BF881B200497258 /* ApostolatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorTests.swift; sourceTree = "<group>"; };
-		CB9564E22BF881B200497258 /* ApostolatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApostolatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB9564E62BF881B200497258 /* ApostolatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorUITests.swift; sourceTree = "<group>"; };
-		CB9564E82BF881B200497258 /* ApostolatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CB9564F52BF8825D00497258 /* Apostolator.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Apostolator.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,22 +50,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB9564DF2BF881B200497258 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		CB9564BF2BF881B100497258 = {
 			isa = PBXGroup;
 			children = (
+				CB9564F52BF8825D00497258 /* Apostolator.xctestplan */,
 				CB9564CA2BF881B100497258 /* Apostolator */,
 				CB9564DB2BF881B200497258 /* ApostolatorTests */,
-				CB9564E52BF881B200497258 /* ApostolatorUITests */,
 				CB9564C92BF881B100497258 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,7 +68,6 @@
 			children = (
 				CB9564C82BF881B100497258 /* Apostolator.app */,
 				CB9564D82BF881B200497258 /* ApostolatorTests.xctest */,
-				CB9564E22BF881B200497258 /* ApostolatorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +97,6 @@
 				CB9564DC2BF881B200497258 /* ApostolatorTests.swift */,
 			);
 			path = ApostolatorTests;
-			sourceTree = "<group>";
-		};
-		CB9564E52BF881B200497258 /* ApostolatorUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CB9564E62BF881B200497258 /* ApostolatorUITests.swift */,
-				CB9564E82BF881B200497258 /* ApostolatorUITestsLaunchTests.swift */,
-			);
-			path = ApostolatorUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +137,6 @@
 			productReference = CB9564D82BF881B200497258 /* ApostolatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CB9564E12BF881B200497258 /* ApostolatorUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB9564F22BF881B200497258 /* Build configuration list for PBXNativeTarget "ApostolatorUITests" */;
-			buildPhases = (
-				CB9564DE2BF881B200497258 /* Sources */,
-				CB9564DF2BF881B200497258 /* Frameworks */,
-				CB9564E02BF881B200497258 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CB9564E42BF881B200497258 /* PBXTargetDependency */,
-			);
-			name = ApostolatorUITests;
-			productName = ApostolatorUITests;
-			productReference = CB9564E22BF881B200497258 /* ApostolatorUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +151,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					CB9564D72BF881B200497258 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = CB9564C72BF881B100497258;
-					};
-					CB9564E12BF881B200497258 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = CB9564C72BF881B100497258;
 					};
@@ -221,7 +171,6 @@
 			targets = (
 				CB9564C72BF881B100497258 /* Apostolator */,
 				CB9564D72BF881B200497258 /* ApostolatorTests */,
-				CB9564E12BF881B200497258 /* ApostolatorUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,13 +186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CB9564D62BF881B200497258 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB9564E02BF881B200497258 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,15 +212,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB9564DE2BF881B200497258 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB9564E72BF881B200497258 /* ApostolatorUITests.swift in Sources */,
-				CB9564E92BF881B200497258 /* ApostolatorUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -286,11 +219,6 @@
 			isa = PBXTargetDependency;
 			target = CB9564C72BF881B100497258 /* Apostolator */;
 			targetProxy = CB9564D92BF881B200497258 /* PBXContainerItemProxy */;
-		};
-		CB9564E42BF881B200497258 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CB9564C72BF881B100497258 /* Apostolator */;
-			targetProxy = CB9564E32BF881B200497258 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -347,7 +275,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -481,7 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8DURMPUBZ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,7 +429,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8DURMPUBZ2;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,42 +437,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apostolator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Apostolator";
-			};
-			name = Release;
-		};
-		CB9564F32BF881B200497258 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8DURMPUBZ2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Apostolator;
-			};
-			name = Debug;
-		};
-		CB9564F42BF881B200497258 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8DURMPUBZ2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Apostolator;
 			};
 			name = Release;
 		};
@@ -574,15 +466,6 @@
 			buildConfigurations = (
 				CB9564F02BF881B200497258 /* Debug */,
 				CB9564F12BF881B200497258 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB9564F22BF881B200497258 /* Build configuration list for PBXNativeTarget "ApostolatorUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB9564F32BF881B200497258 /* Debug */,
-				CB9564F42BF881B200497258 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
