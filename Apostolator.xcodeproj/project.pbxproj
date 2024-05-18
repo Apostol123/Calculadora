@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CB2BF881B100497258 /* ApostolatorApp.swift */; };
+		CB9564CE2BF881B100497258 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CD2BF881B100497258 /* ContentView.swift */; };
+		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
+		CB9564D32BF881B200497258 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564D22BF881B200497258 /* Preview Assets.xcassets */; };
+		CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564DC2BF881B200497258 /* ApostolatorTests.swift */; };
+		CB9564E72BF881B200497258 /* ApostolatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564E62BF881B200497258 /* ApostolatorUITests.swift */; };
+		CB9564E92BF881B200497258 /* ApostolatorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564E82BF881B200497258 /* ApostolatorUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB9564D92BF881B200497258 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB9564C02BF881B100497258 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9564C72BF881B100497258;
+			remoteInfo = Apostolator;
+		};
+		CB9564E32BF881B200497258 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB9564C02BF881B100497258 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9564C72BF881B100497258;
+			remoteInfo = Apostolator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB9564C82BF881B100497258 /* Apostolator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apostolator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9564CB2BF881B100497258 /* ApostolatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorApp.swift; sourceTree = "<group>"; };
+		CB9564CD2BF881B100497258 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CB9564CF2BF881B200497258 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB9564D22BF881B200497258 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CB9564D82BF881B200497258 /* ApostolatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApostolatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9564DC2BF881B200497258 /* ApostolatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorTests.swift; sourceTree = "<group>"; };
+		CB9564E22BF881B200497258 /* ApostolatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApostolatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9564E62BF881B200497258 /* ApostolatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorUITests.swift; sourceTree = "<group>"; };
+		CB9564E82BF881B200497258 /* ApostolatorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB9564C52BF881B100497258 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9564D52BF881B200497258 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9564DF2BF881B200497258 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB9564BF2BF881B100497258 = {
+			isa = PBXGroup;
+			children = (
+				CB9564CA2BF881B100497258 /* Apostolator */,
+				CB9564DB2BF881B200497258 /* ApostolatorTests */,
+				CB9564E52BF881B200497258 /* ApostolatorUITests */,
+				CB9564C92BF881B100497258 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB9564C92BF881B100497258 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB9564C82BF881B100497258 /* Apostolator.app */,
+				CB9564D82BF881B200497258 /* ApostolatorTests.xctest */,
+				CB9564E22BF881B200497258 /* ApostolatorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB9564CA2BF881B100497258 /* Apostolator */ = {
+			isa = PBXGroup;
+			children = (
+				CB9564CB2BF881B100497258 /* ApostolatorApp.swift */,
+				CB9564CD2BF881B100497258 /* ContentView.swift */,
+				CB9564CF2BF881B200497258 /* Assets.xcassets */,
+				CB9564D12BF881B200497258 /* Preview Content */,
+			);
+			path = Apostolator;
+			sourceTree = "<group>";
+		};
+		CB9564D12BF881B200497258 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CB9564D22BF881B200497258 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB9564DB2BF881B200497258 /* ApostolatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB9564DC2BF881B200497258 /* ApostolatorTests.swift */,
+			);
+			path = ApostolatorTests;
+			sourceTree = "<group>";
+		};
+		CB9564E52BF881B200497258 /* ApostolatorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CB9564E62BF881B200497258 /* ApostolatorUITests.swift */,
+				CB9564E82BF881B200497258 /* ApostolatorUITestsLaunchTests.swift */,
+			);
+			path = ApostolatorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB9564C72BF881B100497258 /* Apostolator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9564EC2BF881B200497258 /* Build configuration list for PBXNativeTarget "Apostolator" */;
+			buildPhases = (
+				CB9564C42BF881B100497258 /* Sources */,
+				CB9564C52BF881B100497258 /* Frameworks */,
+				CB9564C62BF881B100497258 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Apostolator;
+			productName = Apostolator;
+			productReference = CB9564C82BF881B100497258 /* Apostolator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB9564D72BF881B200497258 /* ApostolatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9564EF2BF881B200497258 /* Build configuration list for PBXNativeTarget "ApostolatorTests" */;
+			buildPhases = (
+				CB9564D42BF881B200497258 /* Sources */,
+				CB9564D52BF881B200497258 /* Frameworks */,
+				CB9564D62BF881B200497258 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB9564DA2BF881B200497258 /* PBXTargetDependency */,
+			);
+			name = ApostolatorTests;
+			productName = ApostolatorTests;
+			productReference = CB9564D82BF881B200497258 /* ApostolatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CB9564E12BF881B200497258 /* ApostolatorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9564F22BF881B200497258 /* Build configuration list for PBXNativeTarget "ApostolatorUITests" */;
+			buildPhases = (
+				CB9564DE2BF881B200497258 /* Sources */,
+				CB9564DF2BF881B200497258 /* Frameworks */,
+				CB9564E02BF881B200497258 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB9564E42BF881B200497258 /* PBXTargetDependency */,
+			);
+			name = ApostolatorUITests;
+			productName = ApostolatorUITests;
+			productReference = CB9564E22BF881B200497258 /* ApostolatorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB9564C02BF881B100497258 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					CB9564C72BF881B100497258 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					CB9564D72BF881B200497258 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CB9564C72BF881B100497258;
+					};
+					CB9564E12BF881B200497258 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CB9564C72BF881B100497258;
+					};
+				};
+			};
+			buildConfigurationList = CB9564C32BF881B100497258 /* Build configuration list for PBXProject "Apostolator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB9564BF2BF881B100497258;
+			productRefGroup = CB9564C92BF881B100497258 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB9564C72BF881B100497258 /* Apostolator */,
+				CB9564D72BF881B200497258 /* ApostolatorTests */,
+				CB9564E12BF881B200497258 /* ApostolatorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB9564C62BF881B100497258 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9564D32BF881B200497258 /* Preview Assets.xcassets in Resources */,
+				CB9564D02BF881B200497258 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9564D62BF881B200497258 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9564E02BF881B200497258 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB9564C42BF881B100497258 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9564CE2BF881B100497258 /* ContentView.swift in Sources */,
+				CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9564D42BF881B200497258 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9564DE2BF881B200497258 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9564E72BF881B200497258 /* ApostolatorUITests.swift in Sources */,
+				CB9564E92BF881B200497258 /* ApostolatorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB9564DA2BF881B200497258 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB9564C72BF881B100497258 /* Apostolator */;
+			targetProxy = CB9564D92BF881B200497258 /* PBXContainerItemProxy */;
+		};
+		CB9564E42BF881B200497258 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB9564C72BF881B100497258 /* Apostolator */;
+			targetProxy = CB9564E32BF881B200497258 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CB9564EA2BF881B200497258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB9564EB2BF881B200497258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB9564ED2BF881B200497258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Apostolator/Preview Content\"";
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.Apostolator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB9564EE2BF881B200497258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Apostolator/Preview Content\"";
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.Apostolator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CB9564F02BF881B200497258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apostolator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Apostolator";
+			};
+			name = Debug;
+		};
+		CB9564F12BF881B200497258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Apostolator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Apostolator";
+			};
+			name = Release;
+		};
+		CB9564F32BF881B200497258 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Apostolator;
+			};
+			name = Debug;
+		};
+		CB9564F42BF881B200497258 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.ApostolatorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Apostolator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB9564C32BF881B100497258 /* Build configuration list for PBXProject "Apostolator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9564EA2BF881B200497258 /* Debug */,
+				CB9564EB2BF881B200497258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9564EC2BF881B200497258 /* Build configuration list for PBXNativeTarget "Apostolator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9564ED2BF881B200497258 /* Debug */,
+				CB9564EE2BF881B200497258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9564EF2BF881B200497258 /* Build configuration list for PBXNativeTarget "ApostolatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9564F02BF881B200497258 /* Debug */,
+				CB9564F12BF881B200497258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9564F22BF881B200497258 /* Build configuration list for PBXNativeTarget "ApostolatorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9564F32BF881B200497258 /* Debug */,
+				CB9564F42BF881B200497258 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB9564C02BF881B100497258 /* Project object */;
+}
