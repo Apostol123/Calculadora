@@ -2,16 +2,30 @@
 // https://docs.swift.org/swift-book
 import SwiftUI
 
-struct StandardButton: View {
+public struct StandardButton: View {
+   
     let text: String
     let fontSize: CGFloat
     let textColor: Color
     let backgroundColor: Color
-    let width: CGFloat = 62
-    let height: CGFloat = 62
+    let width: CGFloat
+    let height: CGFloat
+    let radius: CGFloat
     let action: () -> Void
     
-    var body: some View {
+    public init(text: String, fontSize: CGFloat, textColor: Color, backgroundColor: Color, width: CGFloat = 62, height: CGFloat = 62, radius: CGFloat = 100, action: @escaping () -> Void) {
+        self.text = text
+        self.fontSize = fontSize
+        self.textColor = textColor
+        self.backgroundColor = backgroundColor
+        self.action = action
+        self.width = width
+        self.radius = radius
+        self.height = height
+    }
+    
+    
+    public var body: some View {
         Button {
             action()
         } label: {
@@ -20,7 +34,7 @@ struct StandardButton: View {
                 .font(.system(size: fontSize))
         }.buttonStyle(ApostolatorButton(width: width, height: height))
             .foregroundStyle(textColor)
-            .background(RoundedRectangle(cornerRadius: 100).fill(backgroundColor))
+            .background(RoundedRectangle(cornerRadius: radius).fill(backgroundColor))
     }
 }
 
@@ -50,7 +64,7 @@ fileprivate struct MainButton: View {
 
 
 #Preview {
-    StandardButton(text: "7", fontSize: 32, textColor: .white, backgroundColor: .orange, action: {
+    StandardButton(text: "7", fontSize: 32, textColor: .white, backgroundColor: .orange,width: 144, height: 60, radius: 27 ,action: {
         print("Hell111o")
     })
 }
