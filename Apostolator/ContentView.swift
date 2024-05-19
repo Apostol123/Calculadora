@@ -13,6 +13,18 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
+            Spacer()
+            HStack(spacing: 20) {
+                Spacer(); Text("test").multilineTextAlignment(.trailing)
+                    .font(.system(size: 40))
+                    .foregroundStyle(.white)
+            }.padding(.trailing, 40)
+            
+            Spacer()
             HStack(spacing: 20) {
                 StandardButton(text: "AC", textColor: .black, backgroundColor: .customLightGray, action: {
                     Engine.observeEvent(.action(.reset))
