@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Engine
 
 @main
 struct ApostolatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(engine: Engine())
         }
     }
 }
