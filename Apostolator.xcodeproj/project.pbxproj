@@ -14,6 +14,7 @@
 		CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564DC2BF881B200497258 /* ApostolatorTests.swift */; };
 		CB9564FC2BF9CAA700497258 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB9564FB2BF9CAA700497258 /* DesignSystem */; };
 		CB9564FE2BF9CAB100497258 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB9564FD2BF9CAB100497258 /* DesignSystem */; };
+		CB9565022BF9E31800497258 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = CB9565012BF9E31800497258 /* Engine */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9565022BF9E31800497258 /* Engine in Frameworks */,
 				CB9564FE2BF9CAB100497258 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +145,7 @@
 			name = Apostolator;
 			packageProductDependencies = (
 				CB9564FD2BF9CAB100497258 /* DesignSystem */,
+				CB9565012BF9E31800497258 /* Engine */,
 			);
 			productName = Apostolator;
 			productReference = CB9564C82BF881B100497258 /* Apostolator.app */;
@@ -512,6 +515,10 @@
 		CB9564FD2BF9CAB100497258 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
+		};
+		CB9565012BF9E31800497258 /* Engine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Engine;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
