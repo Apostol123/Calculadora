@@ -13,7 +13,7 @@ public struct StandardButton: View {
     let radius: CGFloat
     let action: () -> Void
     
-    public init(text: String, fontSize: CGFloat, textColor: Color, backgroundColor: Color, width: CGFloat = 62, height: CGFloat = 62, radius: CGFloat = 100, action: @escaping () -> Void) {
+    public init(text: String, fontSize: CGFloat = 28, textColor: Color, backgroundColor: Color, width: CGFloat = 62, height: CGFloat = 62, radius: CGFloat = 100, action: @escaping () -> Void) {
         self.text = text
         self.fontSize = fontSize
         self.textColor = textColor

@@ -12,6 +12,8 @@
 		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
 		CB9564D32BF881B200497258 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564D22BF881B200497258 /* Preview Assets.xcassets */; };
 		CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564DC2BF881B200497258 /* ApostolatorTests.swift */; };
+		CB9564FC2BF9CAA700497258 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB9564FB2BF9CAA700497258 /* DesignSystem */; };
+		CB9564FE2BF9CAB100497258 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB9564FD2BF9CAB100497258 /* DesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9564FE2BF9CAB100497258 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9564FC2BF9CAA700497258 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 				CB9564CA2BF881B100497258 /* Apostolator */,
 				CB9564DB2BF881B200497258 /* ApostolatorTests */,
 				CB9564C92BF881B100497258 /* Products */,
+				CB9564FA2BF9CAA700497258 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +118,13 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		CB9564FA2BF9CAA700497258 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +141,9 @@
 			dependencies = (
 			);
 			name = Apostolator;
+			packageProductDependencies = (
+				CB9564FD2BF9CAB100497258 /* DesignSystem */,
+			);
 			productName = Apostolator;
 			productReference = CB9564C82BF881B100497258 /* Apostolator.app */;
 			productType = "com.apple.product-type.application";
@@ -147,6 +162,9 @@
 				CB9564DA2BF881B200497258 /* PBXTargetDependency */,
 			);
 			name = ApostolatorTests;
+			packageProductDependencies = (
+				CB9564FB2BF9CAA700497258 /* DesignSystem */,
+			);
 			productName = ApostolatorTests;
 			productReference = CB9564D82BF881B200497258 /* ApostolatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -485,6 +503,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB9564FB2BF9CAA700497258 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+		CB9564FD2BF9CAB100497258 /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CB9564C02BF881B100497258 /* Project object */;
 }
