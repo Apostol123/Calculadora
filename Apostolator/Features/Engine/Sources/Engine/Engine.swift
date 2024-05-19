@@ -15,6 +15,15 @@ public enum Event {
            return 0
         }
     }
+    
+    public var currentAction: Action  {
+        switch self {
+        case .action(let action):
+            return action
+        default:
+            return .idle
+        }
+    }
 }
 
 public enum Action {
@@ -27,13 +36,30 @@ public enum Action {
     case toggleValueType
     case result
     case separator
+    case idle
 }
 
 
 public final class Engine: ObservableObject {
     public  func observeEvent(_ event: Event) {
         currentEventValue = event.currentValue
-        text.append(String(event.currentValue))
+        switch event {
+        case .value:
+            text.append(String(event.currentValue))
+        default:
+            break
+        }
+       
+        react(to: event.currentAction)
+    }
+    
+    private func react(to action: Action) {
+        switch action {
+        case .reset:
+            text = ""
+        default:
+            break
+        }
     }
     
     @Published public var currentEventValue: Int = 0
