@@ -12,7 +12,7 @@ import Engine
 struct ApostolatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(engine: Engine())
+            ContentView(viewModel: ApostolatorViewModel(engine: Engine()))
         }
     }
 }

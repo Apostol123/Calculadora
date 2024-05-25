@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB4074462BFE876A004E2FB6 /* ApostolatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */; };
 		CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CB2BF881B100497258 /* ApostolatorApp.swift */; };
 		CB9564CE2BF881B100497258 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CD2BF881B100497258 /* ContentView.swift */; };
 		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorViewModel.swift; sourceTree = "<group>"; };
 		CB9564C82BF881B100497258 /* Apostolator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apostolator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9564CB2BF881B100497258 /* ApostolatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorApp.swift; sourceTree = "<group>"; };
 		CB9564CD2BF881B100497258 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				CB9564CD2BF881B100497258 /* ContentView.swift */,
 				CB9564CF2BF881B200497258 /* Assets.xcassets */,
 				CB9564D12BF881B200497258 /* Preview Content */,
+				CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */,
 			);
 			path = Apostolator;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB4074462BFE876A004E2FB6 /* ApostolatorViewModel.swift in Sources */,
 				CB9564CE2BF881B100497258 /* ContentView.swift in Sources */,
 				CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */,
 			);
