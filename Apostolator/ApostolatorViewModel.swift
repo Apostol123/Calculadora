@@ -12,6 +12,7 @@ import DesignSystem
 
 class ApostolatorViewModel: ObservableObject {
     @Published var selectedButtonId: Int? = nil
+    @Published var specialAction: Action = .idle
     @Published var engine: Engine
     lazy var myLazy: Bool = {
         true
@@ -92,6 +93,7 @@ class ApostolatorViewModel: ObservableObject {
             }),
             ButtonModel(id: 15, text: "+", textColor: .white, backgroundColor: .orange,  staySelected: true, action: {
                 [weak self] in
+                self?.specialAction = .add
                 self?.engine.observeEvent(.action(.add))
             })
         ],
