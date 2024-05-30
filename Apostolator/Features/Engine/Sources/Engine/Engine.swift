@@ -56,7 +56,6 @@ public final class Engine: ObservableObject {
     
     
     public  func observeEvent(_ event: Event) {
-        currentEventValue = event.currentValue
         switch event {
         case .value:
             
@@ -73,29 +72,60 @@ public final class Engine: ObservableObject {
             newRow = false
             
         case .action(let action):
-            if currentAction != action {
-                lastText = text
-            }
-            
-            newRow = true
-            switch action {
-            case .add:
-                if currentAction == action {
-                    print(add(value: lastText))
-                    print("text: \(text)")
-                    print("lastText: \(lastText)")
-                    text = add(value: lastText)
-                    lastText = text
-                    
-                }
-            default : break
-            }
-            react(to: event.currentAction)
-            
+            react(to: action)
         case .idle:
             break
         }
     }
+    
+   
+    private func react(to action: Action) {
+        newRow = true
+        
+        if currentAction != action {
+            lastText = text
+        }
+        
+        switch action {
+        case .reset:
+            text = ""
+            lastText = ""
+            currentAction = .idle
+            
+        case .add:
+            if currentAction == action {
+                print(add(value: lastText))
+                print("text: \(text)")
+                print("lastText: \(lastText)")
+                text = add(value: lastText)
+                lastText = text
+            }
+            
+        case .subtract:
+            if currentAction == action {
+                print(substract(value: lastText))
+                print("text: \(text)")
+                print("lastText: \(lastText)")
+                text = substract(value: lastText)
+                lastText = text
+            }
+            
+        case .result:
+//            react(to: currentAction)
+            break
+
+        default:
+            break
+        }
+        
+        currentAction = action
+    }
+
+    @Published public var lastText: String = ""
+    @Published public var text: String = ""
+    @Published private var currentAction: Action = .idle
+    
+    public init() {}
     
     private func add(value: String) -> String {
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
@@ -103,6 +133,11 @@ public final class Engine: ObservableObject {
         return NSNumber(value: total).stringValue
     }
     
+    private func substract(value: String) -> String {
+        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
+        let total = doubleValue - doubleCurrentValue
+        return NSNumber(value: total).stringValue
+    }
     
     func formatNumberWithDots(_ number: String) -> String {
         // Remove any non-numeric characters
@@ -125,29 +160,5 @@ public final class Engine: ObservableObject {
         
         return formattedString
     }
-    
-    
-    private func addSeparatorIfNeeded(value: String) -> String {
-        guard let doubleValue = Int(value),
-              let formattedNumber = numberForrmater.string(from: NSNumber(value: doubleValue)) else { return value}
-        return formattedNumber
-    }
-    
-    private func react(to action: Action) {
-        currentAction = action
-        switch action {
-        case .reset:
-            text = ""
-        default:
-            break
-        }
-    }
-    
-    @Published public var currentEventValue: Int = 0
-    @Published public var lastText: String = ""
-    @Published public var text: String = ""
-    @Published private var currentAction: Action = .idle
-    
-    public init() {}
 }
 
