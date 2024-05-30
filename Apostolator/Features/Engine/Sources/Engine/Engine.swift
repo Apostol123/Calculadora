@@ -128,6 +128,9 @@ public final class Engine: ObservableObject {
                 lastText = text
             }
             
+        case .toggleValueType:
+            text = formatNumberWithDots(text, toggleValueType: true)
+            
         case .result:
             react(to: currentAction)
 
@@ -168,7 +171,7 @@ public final class Engine: ObservableObject {
         return NSNumber(value: total).stringValue
     }
     
-    func formatNumberWithDots(_ number: String) -> String {
+    func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
         // Remove any non-numeric characters
         let cleanNumber = number.filter { $0.isNumber }
         
@@ -185,7 +188,15 @@ public final class Engine: ObservableObject {
         }
         
         // Reverse the string back to the original order
-        let formattedString = String(separatedReversedString.reversed())
+        var formattedString = String(separatedReversedString.reversed())
+        
+        if toggleValueType {
+            if text.contains("-") {
+                return formattedString
+            } else {
+                formattedString = "-\(String(separatedReversedString.reversed()))"
+            }
+        }
         
         return formattedString
     }
