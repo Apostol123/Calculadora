@@ -82,7 +82,7 @@ public final class Engine: ObservableObject {
     private func react(to action: Action) {
         newRow = true
         
-        if currentAction != action {
+        if currentAction != action && action != .result {
             lastText = text
         }
         
@@ -111,8 +111,7 @@ public final class Engine: ObservableObject {
             }
             
         case .result:
-//            react(to: currentAction)
-            break
+            react(to: currentAction)
 
         default:
             break
