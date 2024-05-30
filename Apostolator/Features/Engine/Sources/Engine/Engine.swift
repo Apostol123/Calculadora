@@ -110,6 +110,15 @@ public final class Engine: ObservableObject {
                 lastText = text
             }
             
+        case .multiply:
+            if currentAction == action {
+                print(multiply(value: lastText))
+                print("text: \(text)")
+                print("lastText: \(lastText)")
+                text = multiply(value: lastText)
+                lastText = text
+            }
+            
         case .result:
             react(to: currentAction)
 
@@ -135,6 +144,12 @@ public final class Engine: ObservableObject {
     private func substract(value: String) -> String {
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
         let total = doubleValue - doubleCurrentValue
+        return NSNumber(value: total).stringValue
+    }
+    
+    private func multiply(value: String) -> String {
+        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
+        let total = doubleValue * doubleCurrentValue
         return NSNumber(value: total).stringValue
     }
     
