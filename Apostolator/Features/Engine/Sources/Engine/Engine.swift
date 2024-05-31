@@ -80,7 +80,9 @@ public final class Engine: ObservableObject {
     
    
     private func react(to action: Action) {
-        newRow = true
+        if action != .separator {
+            newRow = true
+        }
         
         if currentAction != action && action != .result {
             lastText = text
@@ -133,7 +135,15 @@ public final class Engine: ObservableObject {
             
         case .result:
             react(to: currentAction)
-
+            
+        case .percentage:
+            text = percentage()
+            
+        case .separator:
+            if text.last != ".", !text.isEmpty {
+                text.append(".")
+            }
+                
         default:
             break
         }
@@ -150,6 +160,12 @@ public final class Engine: ObservableObject {
     private func add(value: String) -> String {
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
         let total = doubleValue + doubleCurrentValue
+        return NSNumber(value: total).stringValue
+    }
+    
+    private func percentage() -> String {
+        guard let doubleCurrentValue = Double(text) else { return text }
+        let total = doubleCurrentValue / 100
         return NSNumber(value: total).stringValue
     }
     
@@ -173,7 +189,7 @@ public final class Engine: ObservableObject {
     
     func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
         // Remove any non-numeric characters
-        let cleanNumber = number.filter { $0.isNumber }
+        let cleanNumber = number
         
         // Reverse the string for easier processing
         let reversedString = String(cleanNumber.reversed())

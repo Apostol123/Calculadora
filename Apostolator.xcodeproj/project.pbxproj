@@ -90,9 +90,9 @@
 				CB9564F62BF885F000497258 /* Features */,
 				CB9564CB2BF881B100497258 /* ApostolatorApp.swift */,
 				CB9564CD2BF881B100497258 /* ContentView.swift */,
+				CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */,
 				CB9564CF2BF881B200497258 /* Assets.xcassets */,
 				CB9564D12BF881B200497258 /* Preview Content */,
-				CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */,
 			);
 			path = Apostolator;
 			sourceTree = "<group>";
