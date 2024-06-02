@@ -42,16 +42,6 @@ public enum Action {
 
 
 public final class Engine: ObservableObject {
-    
-    private var numberForrmater: NumberFormatter = {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.groupingSeparator = "."
-        numberFormatter.allowsFloats = true
-        numberFormatter.maximumFractionDigits = 12
-        return numberFormatter
-    }()
-    
     @Published private var newRow: Bool = false
     
     
@@ -189,18 +179,25 @@ public final class Engine: ObservableObject {
     
     func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
         // Remove any non-numeric characters
-        let cleanNumber = number
+        var cleanNumber = number
+        if !toggleValueType {
+            cleanNumber = number.filter {$0.isNumber}
+        }
         
         // Reverse the string for easier processing
         let reversedString = String(cleanNumber.reversed())
         
         // Insert dots every three characters
         var separatedReversedString = ""
-        for (index, character) in reversedString.enumerated() {
-            if index > 0 && index % 3 == 0 {
-                separatedReversedString.append(".")
+        if let intNumber = Int(number.replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
+            for (index, character) in reversedString.enumerated() {
+                if index > 0 && index % 3 == 0 {
+                    separatedReversedString.append(".")
+                }
+                separatedReversedString.append(character)
             }
-            separatedReversedString.append(character)
+        } else {
+            separatedReversedString = reversedString
         }
         
         // Reverse the string back to the original order
@@ -208,7 +205,7 @@ public final class Engine: ObservableObject {
         
         if toggleValueType {
             if text.contains("-") {
-                return formattedString
+                return formattedString.replacingOccurrences(of: "-", with: "")
             } else {
                 formattedString = "-\(String(separatedReversedString.reversed()))"
             }
