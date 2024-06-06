@@ -4,16 +4,16 @@ import Foundation
 import Combine
 
 public enum Event {
-    case value(Int)
+    case value(String)
     case action(Action)
     case idle
     
-    public var currentValue: Int {
+    public var currentValue: String {
         switch self {
         case .value(let value):
             return value
         default:
-            return 0
+            return String(0)
         }
     }
     
@@ -43,11 +43,25 @@ public enum Action {
 
 public final class Engine: ObservableObject {
     @Published private var newRow: Bool = false
+    @Published private var results: [String] = []
+    
+    private lazy var numberFormmated: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 0
+        return formatter
+    }()
     
     
     public  func observeEvent(_ event: Event) {
         switch event {
         case .value:
+            
+            if event.currentValue == ",", text.last != "," {
+                text.append(",")
+                return
+            }
             
             if text.count <= 11 {
                 text.append(String(event.currentValue))
@@ -89,7 +103,8 @@ public final class Engine: ObservableObject {
                 print(add(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
-                text = add(value: lastText)
+                text = formatNumberWithDots(add(value: lastText))
+                results.append(text)
                 lastText = text
             }
             
@@ -98,8 +113,9 @@ public final class Engine: ObservableObject {
                 print(substract(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
-                text = substract(value: lastText)
+                text = formatNumberWithDots(substract(value: lastText))
                 lastText = text
+                results.append(text)
             }
             
         case .multiply:
@@ -107,8 +123,9 @@ public final class Engine: ObservableObject {
                 print(multiply(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
-                text = multiply(value: lastText)
+                text = formatNumberWithDots(multiply(value: lastText))
                 lastText = text
+                results.append(text)
             }
             
         case .split:
@@ -116,8 +133,9 @@ public final class Engine: ObservableObject {
                 print(split(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
-                text = split(value: lastText)
+                text = formatNumberWithDots(split(value: lastText))
                 lastText = text
+                results.append(text)
             }
             
         case .toggleValueType:
@@ -128,11 +146,6 @@ public final class Engine: ObservableObject {
             
         case .percentage:
             text = percentage()
-            
-        case .separator:
-            if text.last != ".", !text.isEmpty {
-                text.append(".")
-            }
                 
         default:
             break
@@ -148,54 +161,64 @@ public final class Engine: ObservableObject {
     public init() {}
     
     private func add(value: String) -> String {
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue + doubleCurrentValue
-        return NSNumber(value: total).stringValue
+        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func percentage() -> String {
+        let text = text.replacingOccurrences(of: ",", with: ".")
         guard let doubleCurrentValue = Double(text) else { return text }
         let total = doubleCurrentValue / 100
-        return NSNumber(value: total).stringValue
+        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func substract(value: String) -> String {
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue - doubleCurrentValue
-        return NSNumber(value: total).stringValue
+        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func split(value: String) -> String {
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue / doubleCurrentValue
-        return NSNumber(value: total).stringValue
+        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func multiply(value: String) -> String {
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text) else { return value }
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue * doubleCurrentValue
-        return NSNumber(value: total).stringValue
+        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
         // Remove any non-numeric characters
-        var cleanNumber = number
-        if !toggleValueType {
-            cleanNumber = number.filter {$0.isNumber}
-        }
+        let cleanNumber = number
+        var decimals: String?
+       
         
         // Reverse the string for easier processing
         let reversedString = String(cleanNumber.reversed())
+        if text.contains(",") {
+            decimals = text.split(separator: ",").map {String($0)}.first
+        }
         
         // Insert dots every three characters
         var separatedReversedString = ""
         if let intNumber = Int(number.replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
-            for (index, character) in reversedString.enumerated() {
-                if index > 0 && index % 3 == 0 {
-                    separatedReversedString.append(".")
+          
+                for (index, character) in reversedString.filter({$0.isNumber}).enumerated() {
+                    if index > 0 && index % 3 == 0 {
+                        separatedReversedString.append(".")
+                    }
+                    separatedReversedString.append(character)
                 }
-                separatedReversedString.append(character)
-            }
+            
+           
         } else {
             separatedReversedString = reversedString
         }
@@ -211,6 +234,9 @@ public final class Engine: ObservableObject {
             }
         }
         
+        if let decimals = decimals, !text.contains(",") {
+            formattedString.append(","+decimals)
+        }
         return formattedString
     }
 }
