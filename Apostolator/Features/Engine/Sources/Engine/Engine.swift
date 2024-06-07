@@ -161,10 +161,15 @@ public final class Engine: ObservableObject {
     public init() {}
     
     private func add(value: String) -> String {
-        let value = value.replacingOccurrences(of: ",", with: ".")
+        var value: String = ""
+        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
+             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
+        }
+        value = value.replacingOccurrences(of: ",", with: ".")
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue + doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
+       
     }
     
     private func percentage() -> String {
@@ -175,21 +180,33 @@ public final class Engine: ObservableObject {
     }
     
     private func substract(value: String) -> String {
-        let value = value.replacingOccurrences(of: ",", with: ".")
+        var value: String = ""
+        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
+             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
+        }
+        value = value.replacingOccurrences(of: ",", with: ".")
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue - doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func split(value: String) -> String {
-        let value = value.replacingOccurrences(of: ",", with: ".")
+        var value: String = ""
+        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
+             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
+        }
+        value = value.replacingOccurrences(of: ",", with: ".")
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue / doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func multiply(value: String) -> String {
-        let value = value.replacingOccurrences(of: ",", with: ".")
+        var value: String = ""
+        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
+             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
+        }
+        value = value.replacingOccurrences(of: ",", with: ".")
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue * doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
