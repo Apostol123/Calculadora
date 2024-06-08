@@ -9,11 +9,14 @@ import Foundation
 import SwiftUI
 import Engine
 import DesignSystem
+import Combine
 
 class ApostolatorViewModel: ObservableObject {
     @Published var selectedButtonId: Int? = nil
     @Published var specialAction: Action = .idle
     @Published var engine: Engine
+    var cancellable: AnyCancellable?
+    
     lazy var myLazy: Bool = {
         true
     }()

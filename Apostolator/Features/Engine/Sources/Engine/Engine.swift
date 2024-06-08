@@ -43,7 +43,7 @@ public enum Action {
 
 public final class Engine: ObservableObject {
     @Published private var newRow: Bool = false
-    @Published private var results: [String] = []
+    @Published public var results: [ResultModel] = []
     
     private lazy var numberFormmated: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -103,8 +103,13 @@ public final class Engine: ObservableObject {
                 print(add(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
+                var resultModel: ResultModel = ResultModel(result: "", lastResult: "", total: "", action: action)
+                resultModel.lastValue = text
+                resultModel.firstValue = lastText
+                
                 text = formatNumberWithDots(add(value: lastText))
-                results.append(text)
+                resultModel.total = text
+                results.append(resultModel)
                 lastText = text
             }
             
@@ -113,9 +118,14 @@ public final class Engine: ObservableObject {
                 print(substract(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
+                var resultModel: ResultModel = ResultModel(result: "", lastResult: "", total: "", action: action)
+                resultModel.lastValue = text
+                resultModel.firstValue = lastText
+                
                 text = formatNumberWithDots(substract(value: lastText))
                 lastText = text
-                results.append(text)
+                resultModel.total = text
+                results.append(resultModel)
             }
             
         case .multiply:
@@ -123,9 +133,14 @@ public final class Engine: ObservableObject {
                 print(multiply(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
+                var resultModel: ResultModel = ResultModel(result: "", lastResult: "", total: "", action: action)
+                resultModel.lastValue = text
+                resultModel.firstValue = lastText
+                
                 text = formatNumberWithDots(multiply(value: lastText))
                 lastText = text
-                results.append(text)
+                resultModel.total = text
+                results.append(resultModel)
             }
             
         case .split:
@@ -133,9 +148,15 @@ public final class Engine: ObservableObject {
                 print(split(value: lastText))
                 print("text: \(text)")
                 print("lastText: \(lastText)")
+                
+                var resultModel: ResultModel = ResultModel(result: "", lastResult: "", total: "", action: action)
+                resultModel.lastValue = text
+                resultModel.firstValue = lastText
+                
                 text = formatNumberWithDots(split(value: lastText))
                 lastText = text
-                results.append(text)
+                resultModel.total = text
+                results.append(resultModel)
             }
             
         case .toggleValueType:
@@ -156,12 +177,12 @@ public final class Engine: ObservableObject {
 
     @Published public var lastText: String = ""
     @Published public var text: String = ""
-    @Published private var currentAction: Action = .idle
+    @Published public var currentAction: Action = .idle
     
     public init() {}
     
     private func add(value: String) -> String {
-        var value: String = ""
+        var value: String = value
         if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
              value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
         }
@@ -180,7 +201,7 @@ public final class Engine: ObservableObject {
     }
     
     private func substract(value: String) -> String {
-        var value: String = ""
+        var value: String = value
         if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
              value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
         }
@@ -191,7 +212,7 @@ public final class Engine: ObservableObject {
     }
     
     private func split(value: String) -> String {
-        var value: String = ""
+        var value: String = value
         if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
              value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
         }
@@ -202,7 +223,7 @@ public final class Engine: ObservableObject {
     }
     
     private func multiply(value: String) -> String {
-        var value: String = ""
+        var value: String = value
         if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
              value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
         }
@@ -258,3 +279,31 @@ public final class Engine: ObservableObject {
     }
 }
 
+
+public struct ResultModel: Identifiable, Equatable {
+    public let id = UUID()
+    public var firstValue: String
+    public let sign: String
+    public var lastValue: String
+    public var total: String
+    
+    init(result: String, lastResult: String, total: String, action: Action = .idle) {
+        self.firstValue = result
+        switch action {
+        case .split:
+           sign = "/"
+        case .multiply:
+            sign = "*"
+        case .add:
+            sign = "*"
+        case .subtract:
+            sign = "-"
+        case .percentage:
+            sign = "%"
+        default: sign = ""
+        }
+        
+        self.lastValue = lastResult
+        self.total = total
+    }
+}
