@@ -295,7 +295,7 @@ public struct ResultModel: Identifiable, Equatable {
         case .multiply:
             sign = "*"
         case .add:
-            sign = "*"
+            sign = "+"
         case .subtract:
             sign = "-"
         case .percentage:

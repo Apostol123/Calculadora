@@ -11,30 +11,49 @@ import DesignSystem
 
 struct ContentView: View {
     @ObservedObject var viewModel: ApostolatorViewModel
+    @StateObject private var orientationManager = OrientationManager()
 
+    var body: some View {
+        Group {
+            if orientationManager.orientation == .portrait {
+                    MainContent(viewModel: viewModel)
+            } else {
+                HStack {
+                        MainContent(viewModel: viewModel)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                
+            }
+        }.padding()
+    }
+}
+
+struct MainContent: View {
+    @ObservedObject var viewModel: ApostolatorViewModel
+    
     var body: some View {
         VStack {
             ScrollViewReader { scrollViewProxy in
-                            List(viewModel.engine.results) { result in
-                                HStack {
-                                    Spacer()
-                                    Text("\(result.firstValue) \(result.sign) \(result.lastValue) = \(result.total)")
-                                        .foregroundStyle(.customLightGray)
-                                        .opacity(0.5)
-                                        .multilineTextAlignment(.trailing)
-                                }
-                            }
-                            .listStyle(.plain)
-                            .listRowSeparator(.hidden)
-                            .onChange(of: viewModel.engine.results) { _ in
-                                if let lastResult = viewModel.engine.results.last {
-                                    withAnimation {
-                                        scrollViewProxy.scrollTo(lastResult.id, anchor: .bottom)
-                                    }
-                                }
-                            }
+                List(viewModel.engine.results) { result in
+                    HStack {
+                        Spacer()
+                        Text("\(result.firstValue) \(result.sign) \(result.lastValue) = \(result.total)")
+                            .foregroundStyle(.customLightGray)
+                            .opacity(0.5)
+                            .multilineTextAlignment(.trailing)
+                    }
+                }
+                .listStyle(.plain)
+                .listRowSeparator(.hidden)
+                .onChange(of: viewModel.engine.results) { _ in
+                    if let lastResult = viewModel.engine.results.last {
+                        withAnimation {
+                            scrollViewProxy.scrollTo(lastResult.id, anchor: .bottom)
                         }
-                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                    }
+                }
+            }
+            .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
             
             Spacer()
             HStack(spacing: 20) {
@@ -57,7 +76,6 @@ struct ContentView: View {
                 }
             }
         }
-        .padding()
     }
 }
 
