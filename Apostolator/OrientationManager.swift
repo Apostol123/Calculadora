@@ -34,8 +34,10 @@ class OrientationManager: ObservableObject {
             orientation = .portrait
         case .landscapeLeft, .landscapeRight, .faceUp, .faceDown:
             orientation = .landscape
-        default:
-            break
+        case .unknown:
+            orientation = .landscape
+        @unknown default:
+            orientation = .landscape
         }
     }
 }

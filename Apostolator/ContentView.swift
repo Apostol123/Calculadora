@@ -14,17 +14,22 @@ struct ContentView: View {
     @StateObject private var orientationManager = OrientationManager()
 
     var body: some View {
-        Group {
+        
             if orientationManager.orientation == .portrait {
+                VStack(alignment: .center) {
                     MainContent(viewModel: viewModel)
-            } else {
-                HStack {
-                        MainContent(viewModel: viewModel)
-                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
+                  
+            } else {
+                Spacer()
+                HStack {
+                    VStack(alignment: .trailing) {
+                        MainContent(viewModel: viewModel)
+                    }
+                        
+                }.frame(maxWidth: .infinity, alignment: .trailing)
             }
-        }.padding()
+       
     }
 }
 
@@ -32,51 +37,51 @@ struct MainContent: View {
     @ObservedObject var viewModel: ApostolatorViewModel
     
     var body: some View {
-        VStack {
-            ScrollViewReader { scrollViewProxy in
-                List(viewModel.engine.results) { result in
-                    HStack {
-                        Spacer()
-                        Text("\(result.firstValue) \(result.sign) \(result.lastValue) = \(result.total)")
-                            .foregroundStyle(.customLightGray)
-                            .opacity(0.5)
-                            .multilineTextAlignment(.trailing)
+     
+            VStack(alignment: .trailing) {
+                ScrollViewReader { scrollViewProxy in
+                    List(viewModel.engine.results) { result in
+                        HStack {
+                            
+                            Text("\(result.firstValue) \(result.sign) \(result.lastValue) = \(result.total)")
+                                .foregroundStyle(.customLightGray)
+                                .opacity(0.5)
+                                .multilineTextAlignment(.trailing)
+                        }
                     }
-                }
-                .listStyle(.plain)
-                .listRowSeparator(.hidden)
-                .onChange(of: viewModel.engine.results) { _ in
-                    if let lastResult = viewModel.engine.results.last {
-                        withAnimation {
-                            scrollViewProxy.scrollTo(lastResult.id, anchor: .bottom)
+                    .listStyle(.plain)
+                    .listRowSeparator(.hidden)
+                    .onChange(of: viewModel.engine.results) { _ in
+                        if let lastResult = viewModel.engine.results.last {
+                            withAnimation {
+                                scrollViewProxy.scrollTo(lastResult.id, anchor: .bottom)
+                            }
                         }
                     }
                 }
-            }
-            .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+            }.padding(.top)
             
-            Spacer()
-            HStack(spacing: 20) {
-                Spacer()
+            HStack {
                 Text(viewModel.engine.text)
                     .multilineTextAlignment(.trailing)
                     .font(.system(size: 40))
                     .foregroundColor(.white)
-            }
-            .padding(.trailing, 40)
+            }.frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, 40)
             
-            ForEach(viewModel.buttons.indices, id: \.self) { rowIndex in
-                HStack(spacing: 20) {
-                    ForEach(viewModel.buttons[rowIndex]) { button in
-                        StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
-                            viewModel.selectButton(id: button.id)
-                            button.action()
-                        })
+            VStack {
+                ForEach(viewModel.buttons.indices, id: \.self) { rowIndex in
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.buttons[rowIndex]) { button in
+                            StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
+                                viewModel.selectButton(id: button.id)
+                                button.action()
+                            })
+                        }
                     }
                 }
             }
         }
-    }
 }
 
 #Preview {
