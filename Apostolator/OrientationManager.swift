@@ -14,7 +14,7 @@ class OrientationManager: ObservableObject {
         case landscape
     }
 
-    @Published var orientation: Orientation = .portrait
+    @Published var orientation: Orientation = UIDevice.current.orientation.isLandscape ? .landscape : .portrait
 
     private var cancellables = Set<AnyCancellable>()
 
