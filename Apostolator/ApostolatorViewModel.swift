@@ -144,7 +144,7 @@ struct ButtonLayout {
             self.separation = 15
             self.textSize = 30
             self.scrollViewTextSize = 20
-            self.zerobuttonWidth = 120
+            self.zerobuttonWidth = 100
             self.zerobuttonLayoutHeight = 42
         case .portrait:
             self.buttonWidth = 62

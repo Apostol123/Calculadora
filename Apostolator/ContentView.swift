@@ -38,7 +38,24 @@ struct MainContent: View {
     @StateObject private var orientation = OrientationManager()
     
     var body: some View {
-        
+        if orientation.orientation == .landscape {
+            HStack {
+                PrimaryContent(viewModel: viewModel)
+            }
+        } else {
+            VStack {
+                PrimaryContent(viewModel: viewModel)
+            }
+        }
+    }
+}
+
+
+struct PrimaryContent: View {
+    @ObservedObject var viewModel: ApostolatorViewModel
+    @StateObject private var orientation = OrientationManager()
+    
+    var body: some View {
         VStack(alignment: .trailing) {
             ScrollViewReader { scrollViewProxy in
                 List(viewModel.engine.results) { result in
@@ -87,6 +104,9 @@ struct MainContent: View {
         }
     }
 }
+
+
+
 
 #Preview {
     ContentView(viewModel: ApostolatorViewModel(engine: Engine()))
