@@ -14,22 +14,19 @@ struct ContentView: View {
     @StateObject private var orientationManager = OrientationManager()
 
     var body: some View {
-        
-            if orientationManager.orientation == .portrait {
-                VStack(alignment: .center) {
+        switch orientationManager.orientation {
+        case .portrait:
+            VStack(alignment: .center) {
+                MainContent(viewModel: viewModel)
+            }
+        case .landscape:
+            HStack {
+                VStack(alignment: .trailing) {
                     MainContent(viewModel: viewModel)
                 }
-                  
-            } else {
-                Spacer()
-                HStack {
-                    VStack(alignment: .trailing) {
-                        MainContent(viewModel: viewModel)
-                    }
-                        
-                }.frame(maxWidth: .infinity, alignment: .trailing)
-            }
-       
+                    
+            }.frame(maxWidth: .infinity, alignment: .trailing)
+        }
     }
 }
 

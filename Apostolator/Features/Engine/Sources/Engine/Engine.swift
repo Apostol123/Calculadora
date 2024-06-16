@@ -1,5 +1,3 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
 import Foundation
 import Combine
 
@@ -63,7 +61,7 @@ public final class Engine: ObservableObject {
                 return
             }
             
-            if text.count <= 11 {
+            if String(event.currentValue).count <= 11 {
                 text.append(String(event.currentValue))
                 text = formatNumberWithDots(text)
             }
