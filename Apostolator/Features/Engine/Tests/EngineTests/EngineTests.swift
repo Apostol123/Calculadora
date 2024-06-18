@@ -67,4 +67,44 @@ final class EngineTests: XCTestCase {
         
         XCTAssertEqual(sut.text.count, 11)
     }
+    
+    func test_sut_correctlyParsesHundredThousandNumber() {
+        // Given
+        sut.observeEvent(.value("111111"))
+        
+        // Then
+        XCTAssertEqual(sut.text, "111.111")
+    }
+
+    func test_sut_correctlyParsesMillionNumber() {
+        // Given
+        sut.observeEvent(.value("1111111"))
+        
+        // Then
+        XCTAssertEqual(sut.text, "1.111.111")
+    }
+
+    func test_sut_correctlyParsesTensMillionNumber() {
+        // Given
+        sut.observeEvent(.value("11111111"))
+        
+        // Then
+        XCTAssertEqual(sut.text, "11.111.111")
+    }
+
+    func test_sut_correctlyParsesHundredMillionNumber() {
+        // Given
+        sut.observeEvent(.value("111111111"))
+        
+        // Then
+        XCTAssertEqual(sut.text, "111.111.111")
+    }
+
+    func test_sut_correctlyParsesThousandsNumber() {
+        // Given
+        sut.observeEvent(.value("11111"))
+        
+        // Then
+        XCTAssertEqual(sut.text, "11.111")
+    }
 }
