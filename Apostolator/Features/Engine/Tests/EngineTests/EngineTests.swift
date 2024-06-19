@@ -107,4 +107,68 @@ final class EngineTests: XCTestCase {
         // Then
         XCTAssertEqual(sut.text, "11.111")
     }
+    
+    func testAdd() {
+        let randomNumbers = [111, 1314,1123,1314,1314,1313]
+        
+        for _ in 0..<10 {
+            let value1 = randomNumbers.randomElement()!
+            let value2 = randomNumbers.randomElement()!
+            
+            sut.observeEvent(.value(String(value1)))
+            sut.observeEvent(.action(.add))
+            sut.observeEvent(.value(String(value2)))
+            sut.observeEvent(.action(.result))
+            XCTAssertEqual(sut.text, String(value1+value2))
+        }
+    }
+    
+    func testMultiply() {
+        let randomNumbers = [12, 13,10,7,6,12]
+        
+        for _ in 0..<10 {
+            let value1 = randomNumbers.randomElement()!
+            let value2 = randomNumbers.randomElement()!
+            
+            sut.observeEvent(.value(String(value1)))
+            sut.observeEvent(.action(.multiply))
+            sut.observeEvent(.value(String(value2)))
+            sut.observeEvent(.action(.result))
+            XCTAssertEqual(sut.text, String(value1*value2))
+        }
+    }
+    
+    func testSubstract() {
+        let randomNumbers = [12, 13,10,7,6,12]
+        
+        for _ in 0..<10 {
+            let value1 = randomNumbers.randomElement()!
+            let value2 = randomNumbers.randomElement()!
+            
+            sut.observeEvent(.value(String(value1)))
+            sut.observeEvent(.action(.subtract))
+            sut.observeEvent(.value(String(value2)))
+            sut.observeEvent(.action(.result))
+            XCTAssertEqual(sut.text, String(value1-value2))
+        }
+    }
+    
+    func testSplit() {
+        let randomNumbers = [12, 13,10,7,6,12]
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 0
+        
+        for _ in 0..<10 {
+            let value1 = randomNumbers.randomElement()!
+            let value2 = randomNumbers.randomElement()!
+            
+            sut.observeEvent(.value(String(value1)))
+            sut.observeEvent(.action(.split))
+            sut.observeEvent(.value(String(value2)))
+            sut.observeEvent(.action(.result))
+            XCTAssertEqual(sut.text, formatter.string(from: NSNumber(value:Double(value1)/Double(value2))))
+        }
+    }
 }

@@ -187,8 +187,12 @@ public final class Engine: ObservableObject {
         value = value.replacingOccurrences(of: ",", with: ".")
         guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
         let total = doubleValue + doubleCurrentValue
-        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
-       
+        if total < 1 {
+            return numberFormmated.string(from:  NSNumber(value: total)) ?? text
+        }
+        else {
+            return  NSNumber(value: total).stringValue
+        }
     }
     
     private func percentage() -> String {
