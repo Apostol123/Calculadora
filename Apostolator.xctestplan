@@ -9,11 +9,15 @@
     }
   ],
   "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "preferredScreenCaptureFormat" : "screenshot",
     "targetForVariableExpansion" : {
       "containerPath" : "container:Apostolator.xcodeproj",
       "identifier" : "CB9564C72BF881B100497258",
       "name" : "Apostolator"
-    }
+    },
+    "testExecutionOrdering" : "random",
+    "uiTestingScreenshotsLifetime" : "keepAlways"
   },
   "testTargets" : [
     {
@@ -21,6 +25,13 @@
         "containerPath" : "container:Apostolator.xcodeproj",
         "identifier" : "CB9564D72BF881B200497258",
         "name" : "ApostolatorTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Apostolator.xcodeproj",
+        "identifier" : "CB4352D22C2216B900DF88C0",
+        "name" : "uiTests"
       }
     }
   ],

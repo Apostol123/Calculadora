@@ -61,7 +61,7 @@ public final class Engine: ObservableObject {
                 return
             }
             
-            if String(event.currentValue).count <= 11 {
+            if String(event.currentValue).count <= 11 && lastText.count <= 11 {
                 text.append(String(event.currentValue))
                 text = formatNumberWithDots(text)
             }
@@ -82,6 +82,7 @@ public final class Engine: ObservableObject {
     
    
     private func react(to action: Action) {
+        guard lastText.count <= 11 else { return }
         if action != .separator {
             newRow = true
         }
@@ -164,7 +165,15 @@ public final class Engine: ObservableObject {
             react(to: currentAction)
             
         case .percentage:
+            
+            var resultModel: ResultModel = ResultModel(result: "", lastResult: "", total: "", action: action)
+            resultModel.lastValue = text
+            resultModel.firstValue = lastText
+            
             text = percentage()
+            
+            resultModel.total = text
+            results.append(resultModel)
                 
         default:
             break

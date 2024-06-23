@@ -92,7 +92,7 @@ fileprivate struct MainButton: View {
 
 public struct ButtonModel: Identifiable {
     public let id: Int
-    let text: String
+    public let text: String
     let fontSize: CGFloat
     let textColor: Color
     let backgroundColor: Color

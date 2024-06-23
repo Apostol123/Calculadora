@@ -63,6 +63,7 @@ struct PrimaryContent: View {
                             .font(.system(size: viewModel.buttonLayout.scrollViewTextSize))
                             .opacity(0.5)
                             .multilineTextAlignment(.trailing)
+                            .accessibilityIdentifier("operationAgendaTXT")
                     }
                 }
                 .listStyle(.plain)
@@ -83,6 +84,7 @@ struct PrimaryContent: View {
                     .multilineTextAlignment(.trailing)
                     .font(.system(size: viewModel.buttonLayout.textSize))
                     .foregroundColor(.primaryText)
+                    .accessibilityIdentifier("resultText")
             }.frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 40)
             
@@ -93,7 +95,7 @@ struct PrimaryContent: View {
                             StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
                                 viewModel.selectButton(id: button.id)
                                 button.action()
-                            })
+                            }).accessibilityIdentifier("btn\(button.text)")
                         }
                     }
                 }

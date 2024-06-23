@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB4074462BFE876A004E2FB6 /* ApostolatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */; };
+		CB4352D62C2216B900DF88C0 /* uiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4352D52C2216B900DF88C0 /* uiTests.swift */; };
 		CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CB2BF881B100497258 /* ApostolatorApp.swift */; };
 		CB9564CE2BF881B100497258 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CD2BF881B100497258 /* ContentView.swift */; };
 		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
@@ -20,6 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CB4352DC2C2216D400DF88C0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB9564C02BF881B100497258 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9564C72BF881B100497258;
+			remoteInfo = Apostolator;
+		};
 		CB9564D92BF881B200497258 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CB9564C02BF881B100497258 /* Project object */;
@@ -31,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorViewModel.swift; sourceTree = "<group>"; };
+		CB4352D32C2216B900DF88C0 /* uiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB4352D52C2216B900DF88C0 /* uiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiTests.swift; sourceTree = "<group>"; };
 		CB9564C82BF881B100497258 /* Apostolator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apostolator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9564CB2BF881B100497258 /* ApostolatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorApp.swift; sourceTree = "<group>"; };
 		CB9564CD2BF881B100497258 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +56,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CB4352D02C2216B900DF88C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB9564C52BF881B100497258 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,12 +83,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB4352D42C2216B900DF88C0 /* uiTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB4352D52C2216B900DF88C0 /* uiTests.swift */,
+			);
+			path = uiTests;
+			sourceTree = "<group>";
+		};
 		CB9564BF2BF881B100497258 = {
 			isa = PBXGroup;
 			children = (
 				CB9564F52BF8825D00497258 /* Apostolator.xctestplan */,
 				CB9564CA2BF881B100497258 /* Apostolator */,
 				CB9564DB2BF881B200497258 /* ApostolatorTests */,
+				CB4352D42C2216B900DF88C0 /* uiTests */,
 				CB9564C92BF881B100497258 /* Products */,
 				CB9564FA2BF9CAA700497258 /* Frameworks */,
 			);
@@ -82,6 +108,7 @@
 			children = (
 				CB9564C82BF881B100497258 /* Apostolator.app */,
 				CB9564D82BF881B200497258 /* ApostolatorTests.xctest */,
+				CB4352D32C2216B900DF88C0 /* uiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +163,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CB4352D22C2216B900DF88C0 /* uiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB4352DB2C2216B900DF88C0 /* Build configuration list for PBXNativeTarget "uiTests" */;
+			buildPhases = (
+				CB4352CF2C2216B900DF88C0 /* Sources */,
+				CB4352D02C2216B900DF88C0 /* Frameworks */,
+				CB4352D12C2216B900DF88C0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB4352DD2C2216D400DF88C0 /* PBXTargetDependency */,
+			);
+			name = uiTests;
+			productName = uiTests;
+			productReference = CB4352D32C2216B900DF88C0 /* uiTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		CB9564C72BF881B100497258 /* Apostolator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB9564EC2BF881B200497258 /* Build configuration list for PBXNativeTarget "Apostolator" */;
@@ -188,6 +233,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					CB4352D22C2216B900DF88C0 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = CB9564C72BF881B100497258;
+					};
 					CB9564C72BF881B100497258 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -212,11 +261,19 @@
 			targets = (
 				CB9564C72BF881B100497258 /* Apostolator */,
 				CB9564D72BF881B200497258 /* ApostolatorTests */,
+				CB4352D22C2216B900DF88C0 /* uiTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CB4352D12C2216B900DF88C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB9564C62BF881B100497258 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -236,6 +293,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CB4352CF2C2216B900DF88C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB4352D62C2216B900DF88C0 /* uiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CB9564C42BF881B100497258 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +323,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CB4352DD2C2216D400DF88C0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB9564C72BF881B100497258 /* Apostolator */;
+			targetProxy = CB4352DC2C2216D400DF88C0 /* PBXContainerItemProxy */;
+		};
 		CB9564DA2BF881B200497258 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CB9564C72BF881B100497258 /* Apostolator */;
@@ -266,6 +336,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CB4352D92C2216B900DF88C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.uiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Apostolator;
+			};
+			name = Debug;
+		};
+		CB4352DA2C2216B900DF88C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8DURMPUBZ2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.alex.apostol.uiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Apostolator;
+			};
+			name = Release;
+		};
 		CB9564EA2BF881B200497258 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -486,6 +598,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB4352DB2C2216B900DF88C0 /* Build configuration list for PBXNativeTarget "uiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB4352D92C2216B900DF88C0 /* Debug */,
+				CB4352DA2C2216B900DF88C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CB9564C32BF881B100497258 /* Build configuration list for PBXProject "Apostolator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

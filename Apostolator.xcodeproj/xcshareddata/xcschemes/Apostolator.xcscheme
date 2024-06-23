@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1500"
-   version = "1.7">
+   version = "2.1">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -17,6 +17,58 @@
                BlueprintIdentifier = "CB9564C72BF881B100497258"
                BuildableName = "Apostolator.app"
                BlueprintName = "Apostolator"
+               ReferencedContainer = "container:Apostolator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <TestPlanReference
+               reference = "container:Apostolator.xctestplan">
+            </TestPlanReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB9564D72BF881B200497258"
+               BuildableName = "ApostolatorTests.xctest"
+               BlueprintName = "ApostolatorTests"
+               ReferencedContainer = "container:Apostolator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB9564E12BF881B200497258"
+               BuildableName = "ApostolatorUITests.xctest"
+               BlueprintName = "ApostolatorUITests"
+               ReferencedContainer = "container:Apostolator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB4352D22C2216B900DF88C0"
+               BuildableName = "uiTests.xctest"
+               BlueprintName = "uiTests"
                ReferencedContainer = "container:Apostolator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
