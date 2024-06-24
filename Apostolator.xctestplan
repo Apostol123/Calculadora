@@ -28,6 +28,7 @@
       }
     },
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:Apostolator.xcodeproj",
         "identifier" : "CB4352D22C2216B900DF88C0",

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		CB4074462BFE876A004E2FB6 /* ApostolatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */; };
 		CB4352D62C2216B900DF88C0 /* uiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4352D52C2216B900DF88C0 /* uiTests.swift */; };
+		CB4F58662C29F89A00A0558D /* SnapshotTEsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */; };
+		CB8D7E6D2C29FC2A006BDB7E /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */; };
+		CB8D7E6E2C29FC2E006BDB7E /* XCTTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */; };
+		CB8D7E712C29FD2B006BDB7E /* Apostolator_light.png in Resources */ = {isa = PBXBuildFile; fileRef = CB8D7E702C29FD2B006BDB7E /* Apostolator_light.png */; };
+		CB8D7E732C29FD6B006BDB7E /* Apostolator_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = CB8D7E722C29FD6B006BDB7E /* Apostolator_dark.png */; };
 		CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CB2BF881B100497258 /* ApostolatorApp.swift */; };
 		CB9564CE2BF881B100497258 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CD2BF881B100497258 /* ContentView.swift */; };
 		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
@@ -41,6 +46,11 @@
 		CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorViewModel.swift; sourceTree = "<group>"; };
 		CB4352D32C2216B900DF88C0 /* uiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4352D52C2216B900DF88C0 /* uiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiTests.swift; sourceTree = "<group>"; };
+		CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTTestCase+Snapshot.swift"; sourceTree = "<group>"; };
+		CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTEsts.swift; sourceTree = "<group>"; };
+		CB8D7E702C29FD2B006BDB7E /* Apostolator_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apostolator_light.png; sourceTree = "<group>"; };
+		CB8D7E722C29FD6B006BDB7E /* Apostolator_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apostolator_dark.png; sourceTree = "<group>"; };
 		CB9564C82BF881B100497258 /* Apostolator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apostolator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9564CB2BF881B100497258 /* ApostolatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApostolatorApp.swift; sourceTree = "<group>"; };
 		CB9564CD2BF881B100497258 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +101,24 @@
 			path = uiTests;
 			sourceTree = "<group>";
 		};
+		CB4F585D2C29F84100A0558D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */,
+				CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		CB4F58642C29F86F00A0558D /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+				CB8D7E722C29FD6B006BDB7E /* Apostolator_dark.png */,
+				CB8D7E702C29FD2B006BDB7E /* Apostolator_light.png */,
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
 		CB9564BF2BF881B100497258 = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +166,10 @@
 		CB9564DB2BF881B200497258 /* ApostolatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB4F58642C29F86F00A0558D /* snapshots */,
+				CB4F585D2C29F84100A0558D /* Helpers */,
 				CB9564DC2BF881B200497258 /* ApostolatorTests.swift */,
+				CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */,
 			);
 			path = ApostolatorTests;
 			sourceTree = "<group>";
@@ -287,6 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8D7E732C29FD6B006BDB7E /* Apostolator_dark.png in Resources */,
+				CB8D7E712C29FD2B006BDB7E /* Apostolator_light.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +350,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */,
+				CB8D7E6D2C29FC2A006BDB7E /* UIViewController+Snapshot.swift in Sources */,
+				CB4F58662C29F89A00A0558D /* SnapshotTEsts.swift in Sources */,
+				CB8D7E6E2C29FC2E006BDB7E /* XCTTestCase+Snapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
