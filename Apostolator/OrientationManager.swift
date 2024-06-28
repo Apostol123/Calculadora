@@ -18,7 +18,7 @@ class OrientationManager: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
-    init() {
+    public init() {
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
         NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
             .map { _ in UIDevice.current.orientation }

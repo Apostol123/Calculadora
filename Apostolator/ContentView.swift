@@ -11,18 +11,23 @@ import DesignSystem
 
 struct ContentView: View {
     @ObservedObject var viewModel: ApostolatorViewModel
-    @StateObject private var orientationManager = OrientationManager()
+    @ObservedObject private var orientationManager: OrientationManager
+    
+    init(viewModel: ApostolatorViewModel, orientationManager: OrientationManager = OrientationManager()) {
+        self.viewModel = viewModel
+        self.orientationManager = orientationManager
+    }
 
     var body: some View {
         switch orientationManager.orientation {
         case .portrait:
             VStack(alignment: .center) {
-                MainContent(viewModel: viewModel)
+                MainContent(viewModel: viewModel, orientationManager: orientationManager)
             }
         case .landscape:
             HStack {
                 VStack(alignment: .trailing) {
-                    MainContent(viewModel: viewModel)
+                    MainContent(viewModel: viewModel, orientationManager: orientationManager)
                 }
                     
             }.frame(maxWidth: .infinity, alignment: .trailing)
@@ -32,16 +37,21 @@ struct ContentView: View {
 
 struct MainContent: View {
     @ObservedObject var viewModel: ApostolatorViewModel
-    @StateObject private var orientation = OrientationManager()
+    @ObservedObject private var orientationManager: OrientationManager
+    
+    init(viewModel: ApostolatorViewModel, orientationManager: OrientationManager) {
+        self.viewModel = viewModel
+        self.orientationManager = orientationManager
+    }
     
     var body: some View {
-        if orientation.orientation == .landscape {
+        if orientationManager.orientation == .landscape {
             HStack {
-                PrimaryContent(viewModel: viewModel)
+                PrimaryContent(viewModel: viewModel, orientationManager: orientationManager)
             }
         } else {
             VStack {
-                PrimaryContent(viewModel: viewModel)
+                PrimaryContent(viewModel: viewModel, orientationManager: orientationManager)
             }
         }
     }
@@ -50,7 +60,12 @@ struct MainContent: View {
 
 struct PrimaryContent: View {
     @ObservedObject var viewModel: ApostolatorViewModel
-    @StateObject private var orientation = OrientationManager()
+    @ObservedObject private var orientationManager: OrientationManager
+    
+    init(viewModel: ApostolatorViewModel, orientationManager: OrientationManager) {
+        self.viewModel = viewModel
+        self.orientationManager = orientationManager
+    }
     
     var body: some View {
         VStack(alignment: .trailing) {
@@ -78,7 +93,7 @@ struct PrimaryContent: View {
             }
         }.padding(.top)
         
-        VStack(alignment: orientation.orientation == .landscape ?  .trailing : .center) {
+        VStack(alignment: orientationManager.orientation == .landscape ?  .trailing : .center) {
             HStack {
                 Text(viewModel.engine.text)
                     .multilineTextAlignment(.trailing)
@@ -108,7 +123,7 @@ struct PrimaryContent: View {
 
 
 #Preview {
-    ContentView(viewModel: ApostolatorViewModel(engine: Engine()))
+    ContentView(viewModel: ApostolatorViewModel(engine: Engine()), orientationManager: OrientationManager())
 }
 
 

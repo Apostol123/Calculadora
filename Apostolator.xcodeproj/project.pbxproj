@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		CB4074462BFE876A004E2FB6 /* ApostolatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4074452BFE876A004E2FB6 /* ApostolatorViewModel.swift */; };
 		CB4352D62C2216B900DF88C0 /* uiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4352D52C2216B900DF88C0 /* uiTests.swift */; };
-		CB4F58662C29F89A00A0558D /* SnapshotTEsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */; };
-		CB8D7E6D2C29FC2A006BDB7E /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */; };
-		CB8D7E6E2C29FC2E006BDB7E /* XCTTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */; };
 		CB8D7E712C29FD2B006BDB7E /* Apostolator_light.png in Resources */ = {isa = PBXBuildFile; fileRef = CB8D7E702C29FD2B006BDB7E /* Apostolator_light.png */; };
 		CB8D7E732C29FD6B006BDB7E /* Apostolator_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = CB8D7E722C29FD6B006BDB7E /* Apostolator_dark.png */; };
+		CB94DC2E2C2F560200BF1AB0 /* SnapshotTEsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */; };
+		CB94DC2F2C2F560600BF1AB0 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */; };
+		CB94DC302C2F560D00BF1AB0 /* XCTTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */; };
 		CB9564CC2BF881B100497258 /* ApostolatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CB2BF881B100497258 /* ApostolatorApp.swift */; };
 		CB9564CE2BF881B100497258 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9564CD2BF881B100497258 /* ContentView.swift */; };
 		CB9564D02BF881B200497258 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9564CF2BF881B200497258 /* Assets.xcassets */; };
@@ -22,6 +22,8 @@
 		CB9564FC2BF9CAA700497258 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB9564FB2BF9CAA700497258 /* DesignSystem */; };
 		CB9564FE2BF9CAB100497258 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = CB9564FD2BF9CAB100497258 /* DesignSystem */; };
 		CB9565022BF9E31800497258 /* Engine in Frameworks */ = {isa = PBXBuildFile; productRef = CB9565012BF9E31800497258 /* Engine */; };
+		CBAA82312C2B56FB0041A14E /* Apostolator_light_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA82302C2B56FB0041A14E /* Apostolator_light_landscape.png */; };
+		CBAA82332C2B57010041A14E /* Apostolator_dark_landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA82322C2B57010041A14E /* Apostolator_dark_landscape.png */; };
 		CBAAEE6D2C15F1DE00ABF8B0 /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAAEE6C2C15F1DE00ABF8B0 /* OrientationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		CB9564F72BF8862700497258 /* UIComposer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIComposer; sourceTree = "<group>"; };
 		CB9564F82BF886AF00497258 /* Engine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Engine; sourceTree = "<group>"; };
 		CB9564F92BF886F900497258 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
+		CBAA82302C2B56FB0041A14E /* Apostolator_light_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apostolator_light_landscape.png; sourceTree = "<group>"; };
+		CBAA82322C2B57010041A14E /* Apostolator_dark_landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apostolator_dark_landscape.png; sourceTree = "<group>"; };
 		CBAAEE6C2C15F1DE00ABF8B0 /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,8 +108,6 @@
 		CB4F585D2C29F84100A0558D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */,
-				CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -113,6 +115,8 @@
 		CB4F58642C29F86F00A0558D /* snapshots */ = {
 			isa = PBXGroup;
 			children = (
+				CBAA82322C2B57010041A14E /* Apostolator_dark_landscape.png */,
+				CBAA82302C2B56FB0041A14E /* Apostolator_light_landscape.png */,
 				CB8D7E722C29FD6B006BDB7E /* Apostolator_dark.png */,
 				CB8D7E702C29FD2B006BDB7E /* Apostolator_light.png */,
 			);
@@ -166,10 +170,12 @@
 		CB9564DB2BF881B200497258 /* ApostolatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				CB4F58602C29F84100A0558D /* XCTTestCase+Snapshot.swift */,
+				CB4F585F2C29F84100A0558D /* UIViewController+Snapshot.swift */,
+				CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */,
 				CB4F58642C29F86F00A0558D /* snapshots */,
 				CB4F585D2C29F84100A0558D /* Helpers */,
 				CB9564DC2BF881B200497258 /* ApostolatorTests.swift */,
-				CB4F58652C29F89A00A0558D /* SnapshotTEsts.swift */,
 			);
 			path = ApostolatorTests;
 			sourceTree = "<group>";
@@ -318,8 +324,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBAA82332C2B57010041A14E /* Apostolator_dark_landscape.png in Resources */,
 				CB8D7E732C29FD6B006BDB7E /* Apostolator_dark.png in Resources */,
 				CB8D7E712C29FD2B006BDB7E /* Apostolator_light.png in Resources */,
+				CBAA82312C2B56FB0041A14E /* Apostolator_light_landscape.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,9 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9564DD2BF881B200497258 /* ApostolatorTests.swift in Sources */,
-				CB8D7E6D2C29FC2A006BDB7E /* UIViewController+Snapshot.swift in Sources */,
-				CB4F58662C29F89A00A0558D /* SnapshotTEsts.swift in Sources */,
-				CB8D7E6E2C29FC2E006BDB7E /* XCTTestCase+Snapshot.swift in Sources */,
+				CB94DC2F2C2F560600BF1AB0 /* UIViewController+Snapshot.swift in Sources */,
+				CB94DC2E2C2F560200BF1AB0 /* SnapshotTEsts.swift in Sources */,
+				CB94DC302C2F560D00BF1AB0 /* XCTTestCase+Snapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

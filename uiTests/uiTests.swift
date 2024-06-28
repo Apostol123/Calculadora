@@ -6,6 +6,9 @@
 //
 
 import XCTest
+import SwiftUI
+import Engine
+@testable import Apostolator
 
 final class uiTests: XCTestCase {
     
@@ -34,13 +37,13 @@ final class uiTests: XCTestCase {
     }
     
     override func setUpWithError() throws {
-           continueAfterFailure = false
-           let app = XCUIApplication()
-           app.launch()
-       }
+        continueAfterFailure = false
+        let app = XCUIApplication()
+        app.launch()
+    }
     
     func testAddOperations() throws {
-                
+        
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.resultText].exists)
         let nineButton = app.buttons[AccessibilityIdentifiers.nine]
@@ -54,7 +57,7 @@ final class uiTests: XCTestCase {
     }
     
     func testSubstractOperations() throws {
-                
+        
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.resultText].exists)
         let nineButton = app.buttons[AccessibilityIdentifiers.nine]
@@ -68,7 +71,7 @@ final class uiTests: XCTestCase {
     }
     
     func testMultiplyOperations() throws {
-                
+        
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.resultText].exists)
         let nineButton = app.buttons[AccessibilityIdentifiers.nine]
@@ -82,7 +85,7 @@ final class uiTests: XCTestCase {
     }
     
     func testDivideOperations() throws {
-                
+        
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.resultText].exists)
         let nineButton = app.buttons[AccessibilityIdentifiers.nine]
@@ -96,7 +99,7 @@ final class uiTests: XCTestCase {
     }
     
     func testPercentageOperations() throws {
-                
+        
         let app = XCUIApplication()
         XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.resultText].exists)
         let nineButton = app.buttons[AccessibilityIdentifiers.nine]
@@ -129,4 +132,5 @@ final class uiTests: XCTestCase {
         XCTAssertTrue(app.buttons[AccessibilityIdentifiers.equals].exists, "Equals button does not exist")
         XCTAssertTrue(app.staticTexts[AccessibilityIdentifiers.resultText].exists, "result textField does not exist")
     }
+    
 }
