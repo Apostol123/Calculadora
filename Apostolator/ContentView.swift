@@ -103,18 +103,36 @@ struct PrimaryContent: View {
             }.frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 40)
             
-            VStack {
-                ForEach(viewModel.buttons().indices, id: \.self) { rowIndex in
-                    HStack(spacing: viewModel.buttonLayout.separation) {
-                        ForEach(viewModel.buttons()[rowIndex]) { button in
-                            StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
-                                viewModel.selectButton(id: button.id)
-                                button.action()
-                            }).accessibilityIdentifier("btn\(button.text)")
+            HStack {
+                Spacer()
+                if orientationManager.orientation == .landscape {
+                    VStack(alignment: .leading) {
+                        ForEach(viewModel.landscapeButtons().indices, id: \.self) { rowIndex in
+                            HStack(spacing: viewModel.buttonLayout.separation) {
+                                ForEach(viewModel.landscapeButtons()[rowIndex]) { button in
+                                    StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
+                                        viewModel.selectButton(id: button.id)
+                                        button.action()
+                                    }).accessibilityIdentifier("btn\(button.text)")
+                                }
+                            }
+                        }
+                    }.padding(.trailing, viewModel.buttonLayout.separation)
+                        
+                }
+                VStack {
+                    ForEach(viewModel.buttons().indices, id: \.self) { rowIndex in
+                        HStack(spacing: viewModel.buttonLayout.separation) {
+                            ForEach(viewModel.buttons()[rowIndex]) { button in
+                                StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
+                                    viewModel.selectButton(id: button.id)
+                                    button.action()
+                                }).accessibilityIdentifier("btn\(button.text)")
+                            }
                         }
                     }
                 }
-            }
+            }.padding(.trailing, 40)
         }
     }
 }

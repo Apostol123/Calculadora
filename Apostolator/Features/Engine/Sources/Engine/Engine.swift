@@ -42,11 +42,12 @@ public enum Action {
 public final class Engine: ObservableObject {
     @Published private var newRow: Bool = false
     @Published public var results: [ResultModel] = []
+    @Published public var decimals: Int = 3
     
     private lazy var numberFormmated: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 3
+        formatter.maximumFractionDigits = decimals
         formatter.minimumFractionDigits = 0
         return formatter
     }()

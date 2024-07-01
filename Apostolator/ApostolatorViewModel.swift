@@ -23,99 +23,124 @@ class ApostolatorViewModel: ObservableObject {
     
     init(engine: Engine) {
         self.engine = engine
+        cancellable = orientation.$orientation.sink { [weak self] orientation in
+            self?.engine.decimals = orientation == .landscape ? 12 : 3
+        }
     }
     
-    func  buttons() ->  [[ButtonModel]] { [
-        [ ButtonModel(id: 0, text: "AC",textColor: .black, backgroundColor: .customLightGray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight ,action: {
-            [weak self] in
-            self?.engine.observeEvent(.action(.reset))
-        }),
-          ButtonModel(id: 1, text: "+/-", textColor: .black, backgroundColor: .customLightGray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-              [weak self] in
-              self?.engine.observeEvent(.action(.toggleValueType))
-          }),
-          ButtonModel(id: 2, text: "%", textColor: .black, backgroundColor: .customLightGray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight,action: {
-              [weak self] in
-              self?.engine.observeEvent(.action(.percentage))
-          }),
-          ButtonModel(id: 3, text: "➗", textColor: .black, backgroundColor: .orange, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
-              [weak self] in
-              self?.engine.observeEvent(.action(.split))
-          })],
-        
-        [ ButtonModel(id: 4, text: "7", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: { [weak self] in
-            self?.engine.observeEvent(.value("7"))
-        }),
-          ButtonModel(id: 5, text: "8", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: { [weak self] in
-              self?.engine.observeEvent(.value("8"))
-              
-          }),
-          ButtonModel(id: 6, text: "9", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-              [weak self] in
-              self?.engine.observeEvent(.value("9"))
-              
-          }),
-          ButtonModel(id: 7, text: "X", textColor: .white, backgroundColor: .orange,  width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
-              [weak self] in
-              self?.engine.observeEvent(.action(.multiply))
-          })],
-        
-        [  ButtonModel(id: 8, text: "4", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-            [weak self] in
-            self?.engine.observeEvent(.value("4"))
+    func  buttons() ->  [[ButtonModel]] { 
+        portraitButtons()
+    }
+    
+    private func portraitButtons() -> [[ButtonModel]] {
+        [
+            [ ButtonModel(id: 0, text: "AC",textColor: .black, backgroundColor: .customLightGray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight ,action: {
+                [weak self] in
+                self?.engine.observeEvent(.action(.reset))
+            }),
+              ButtonModel(id: 1, text: "+/-", textColor: .black, backgroundColor: .customLightGray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                  [weak self] in
+                  self?.engine.observeEvent(.action(.toggleValueType))
+              }),
+              ButtonModel(id: 2, text: "%", textColor: .black, backgroundColor: .customLightGray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight,action: {
+                  [weak self] in
+                  self?.engine.observeEvent(.action(.percentage))
+              }),
+              ButtonModel(id: 3, text: "➗", textColor: .black, backgroundColor: .orange, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
+                  [weak self] in
+                  self?.engine.observeEvent(.action(.split))
+              })],
             
-        }),
-           ButtonModel(id: 9, text: "5", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {[weak self] in
-               self?.engine.observeEvent(.value("5"))
-               
-           }),
-           ButtonModel(id: 10, text: "6", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: { [weak self] in
-               self?.engine.observeEvent(.value("6"))
-               
-           }),
-           ButtonModel(id: 11, text: "-", textColor: .white, backgroundColor: .orange,  width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
-               [weak self] in
-               self?.engine.observeEvent(.action(.subtract))
-           })],
-        
-        [
-            ButtonModel(id: 12, text: "1", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+            [ ButtonModel(id: 4, text: "7", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: { [weak self] in
+                self?.engine.observeEvent(.value("7"))
+            }),
+              ButtonModel(id: 5, text: "8", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: { [weak self] in
+                  self?.engine.observeEvent(.value("8"))
+                  
+              }),
+              ButtonModel(id: 6, text: "9", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                  [weak self] in
+                  self?.engine.observeEvent(.value("9"))
+                  
+              }),
+              ButtonModel(id: 7, text: "X", textColor: .white, backgroundColor: .orange,  width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
+                  [weak self] in
+                  self?.engine.observeEvent(.action(.multiply))
+              })],
+            
+            [  ButtonModel(id: 8, text: "4", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
                 [weak self] in
-                self?.engine.observeEvent(.value("1"))
+                self?.engine.observeEvent(.value("4"))
                 
             }),
-            ButtonModel(id: 13, text: "2", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-                [weak self] in
-                self?.engine.observeEvent(.value("2"))
-                
-            }),
-            ButtonModel(id: 14, text: "3", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-                [weak self] in
-                self?.engine.observeEvent(.value("3"))
-                
-            }),
-            ButtonModel(id: 15, text: "+", textColor: .white, backgroundColor: .orange,  width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
-                [weak self] in
-                self?.specialAction = .add
-                self?.engine.observeEvent(.action(.add))
-            })
-        ],
-        [
-            ButtonModel(id: 16, text: "0", textColor: .white, backgroundColor: .gray, width: buttonLayout.zerobuttonWidth, height: buttonLayout.zerobuttonLayoutHeight, action: {
-                [weak self] in
-                self?.engine.observeEvent(.value("0"))
-            }),
-            ButtonModel(id: 17, text: ".", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-                [weak self] in
-                self?.engine.observeEvent(.value(","))
-            }),
-            ButtonModel(id: 18, text: "=", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-                [weak self] in
-                self?.engine.observeEvent(.action(.result))
-            })
+               ButtonModel(id: 9, text: "5", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {[weak self] in
+                   self?.engine.observeEvent(.value("5"))
+                   
+               }),
+               ButtonModel(id: 10, text: "6", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: { [weak self] in
+                   self?.engine.observeEvent(.value("6"))
+                   
+               }),
+               ButtonModel(id: 11, text: "-", textColor: .white, backgroundColor: .orange,  width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
+                   [weak self] in
+                   self?.engine.observeEvent(.action(.subtract))
+               })],
+            
+            [
+                ButtonModel(id: 12, text: "1", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                    [weak self] in
+                    self?.engine.observeEvent(.value("1"))
+                    
+                }),
+                ButtonModel(id: 13, text: "2", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                    [weak self] in
+                    self?.engine.observeEvent(.value("2"))
+                    
+                }),
+                ButtonModel(id: 14, text: "3", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                    [weak self] in
+                    self?.engine.observeEvent(.value("3"))
+                    
+                }),
+                ButtonModel(id: 15, text: "+", textColor: .white, backgroundColor: .orange,  width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, staySelected: true, action: {
+                    [weak self] in
+                    self?.specialAction = .add
+                    self?.engine.observeEvent(.action(.add))
+                })
+            ],
+            [
+                ButtonModel(id: 16, text: "0", textColor: .white, backgroundColor: .gray, width: buttonLayout.zerobuttonWidth, height: buttonLayout.zerobuttonLayoutHeight, action: {
+                    [weak self] in
+                    self?.engine.observeEvent(.value("0"))
+                }),
+                ButtonModel(id: 17, text: ".", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                    [weak self] in
+                    self?.engine.observeEvent(.value(","))
+                }),
+                ButtonModel(id: 18, text: "=", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                    [weak self] in
+                    self?.engine.observeEvent(.action(.result))
+                })
+            ]
+            
         ]
+    }
+    
+    public func landscapeButtons() -> [[ButtonModel]] {
+        var buttonsArray: [[ButtonModel]] = [[]]
+        for _ in  0...4 {
+            var buttonsRowArray: [ButtonModel] = []
+            for r in 0...5 {
+                buttonsRowArray.append(ButtonModel(id: r*12, text: "test", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
+                    
+                }))
+            }
+            
+            buttonsArray.append(buttonsRowArray)
+        }
         
-    ]}
+        return buttonsArray
+    }
     
     func selectButton(id: Int) {
         selectedButtonId = id
