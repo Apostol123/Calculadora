@@ -38,7 +38,7 @@ public struct StandardButton: View {
             action()
         } label: {
             if let subIndex, let superIndex {
-                AttributedLabel(attributedText: AttributedLabel.createCubeRoot(superScript: superIndex, subscript: subIndex))
+                AttributedLabel(attributedText: AttributedLabel.createCubeRoot(superScript: superIndex, subScript: subIndex))
             } else if let subIndex {
                 AttributedLabel(attributedText: AttributedLabel.createSubScriptText(baseText: text, subScriptText: subIndex))
             } else if let superIndex  {

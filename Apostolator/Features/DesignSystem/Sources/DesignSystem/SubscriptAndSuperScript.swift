@@ -60,7 +60,7 @@ struct AttributedLabel: UIViewRepresentable {
         return baseAttributedString
     }
     
-    static func createCubeRoot(superScript: String, subscript: String) -> NSAttributedString {
+    static func createCubeRoot(superScript: String, subScript: String) -> NSAttributedString {
         let baseFont = UIFont.systemFont(ofSize: 20)
         let subScriptFont = UIFont.systemFont(ofSize: 10)
         let subScriptBaselineOffset: CGFloat = 6
@@ -77,7 +77,7 @@ struct AttributedLabel: UIViewRepresentable {
         
         let baseAttributedString = NSMutableAttributedString(string: "√", attributes: baseAttributes)
         let superScriptAttributesString = NSAttributedString(string: superScript, attributes: superScriptAttributes)
-        let subScriptAttributedString = NSAttributedString(string: superScript, attributes: subscriptAttributes)
+        let subScriptAttributedString = NSAttributedString(string: subScript, attributes: subscriptAttributes)
         
         baseAttributedString.insert(superScriptAttributesString, at: 0)
         baseAttributedString.append(subScriptAttributedString)

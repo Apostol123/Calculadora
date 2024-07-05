@@ -128,11 +128,11 @@ class ApostolatorViewModel: ObservableObject {
     
     public func landscapeButtons() -> [[ButtonModel]] {
        [
-        fifthRowLandscapeOnlyButtons(),
-        forthRowLandscapeOnlyButtons(),
-        thirdRowLandscapeOnlyButtons(),
-        secondRowLandscapeOnlyButtons(),
-        firstRowLandscapeOnlyButtons()
+        fifthRowLandscapeOnlyButtons().reversed(),
+        forthRowLandscapeOnlyButtons().reversed(),
+        thirdRowLandscapeOnlyButtons().reversed(),
+        secondRowLandscapeOnlyButtons().reversed(),
+        firstRowLandscapeOnlyButtons().reversed()
        ]
     }
     
@@ -167,14 +167,14 @@ class ApostolatorViewModel: ObservableObject {
                         height: buttonLayout.buttonHeight,
                         action: {}),
             ButtonModel(id: 128,
-                        text: "(",
+                        text: ")",
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
                         action: {}),
             ButtonModel(id: 129,
-                        text: ")",
+                        text: "(",
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
