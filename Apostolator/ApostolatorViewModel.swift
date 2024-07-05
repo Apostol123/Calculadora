@@ -127,19 +127,270 @@ class ApostolatorViewModel: ObservableObject {
     }
     
     public func landscapeButtons() -> [[ButtonModel]] {
-        var buttonsArray: [[ButtonModel]] = [[]]
-        for _ in  0...4 {
-            var buttonsRowArray: [ButtonModel] = []
-            for r in 0...5 {
-                buttonsRowArray.append(ButtonModel(id: r*12, text: "test", textColor: .white, backgroundColor: .gray, width: buttonLayout.buttonWidth, height: buttonLayout.buttonHeight, action: {
-                    
-                }))
-            }
-            
-            buttonsArray.append(buttonsRowArray)
-        }
+       [
+        fifthRowLandscapeOnlyButtons(),
+        forthRowLandscapeOnlyButtons(),
+        thirdRowLandscapeOnlyButtons(),
+        secondRowLandscapeOnlyButtons(),
+        firstRowLandscapeOnlyButtons()
+       ]
+    }
+    
+    private func fifthRowLandscapeOnlyButtons() -> [ButtonModel] {
+        [
+            ButtonModel(id: 124,
+                        text: "mr",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 125,
+                        text: "m-",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 126,
+                        text: "m+",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 127,
+                        text: "mc",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 128,
+                        text: "(",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 129,
+                        text: ")",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+        ]
+    }
+    
+    private func forthRowLandscapeOnlyButtons() -> [ButtonModel]  {
+        [
+            ButtonModel(id: 118,
+                        text: "10",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        superIndex: "x",
+                        action: {}),
+            ButtonModel(id: 119,
+                        text: "e",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        superIndex: "x",
+                        action: {}),
+            ButtonModel(id: 120,
+                        text: "x",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        superIndex: "y",
+                        action: {}),
+            ButtonModel(id: 121,
+                        text: "x",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        superIndex: "3",
+                        action: {}),
+            ButtonModel(id: 122,
+                        text: "x",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        superIndex: "2",
+                        action: {}),
+            ButtonModel(id: 123,
+                        text: "2",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        superIndex: "nd",
+                        action: {}),
         
-        return buttonsArray
+        ]
+    }
+    
+    private func thirdRowLandscapeOnlyButtons() -> [ButtonModel]  {
+        [
+            ButtonModel(id: 112,
+                        text: "log",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        subIndex: "10",
+                        action: {}),
+            ButtonModel(id: 113,
+                        text: "ln",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 114,
+                        text: "",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        subIndex: "x",
+                        superIndex: "y",
+                        action: {}),
+            ButtonModel(id: 115,
+                        text: "",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        subIndex: "x",
+                        superIndex: "3",
+                        action: {}),
+            ButtonModel(id: 116,
+                        text: "",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        subIndex: "x",
+                        superIndex: "2",
+                        action: {}),
+            ButtonModel(id: 117,
+                        text: "",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        subIndex: "x",
+                        superIndex: "1",
+                        action: {}),
+            ]
+    }
+    
+    private func secondRowLandscapeOnlyButtons() -> [ButtonModel] {
+        [
+            ButtonModel(id: 12313,
+                        text: "EE",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 107,
+                        text: "e",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 108,
+                        text: "tan",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 109,
+                        text: "cos",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 110,
+                        text: "sin",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 111,
+                        text: "x!",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {})
+        ]
+    }
+    
+    private func firstRowLandscapeOnlyButtons() -> [ButtonModel] {
+        [
+            ButtonModel(id: 100,
+                        text: "Rand",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 101,
+                        text: "π",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            
+            ButtonModel(id: 103,
+                        text: "tanh",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            
+            ButtonModel(id: 104,
+                        text: "cosh",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            ButtonModel(id: 105,
+                        text: "sinh",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {}),
+            
+            ButtonModel(id: 106,
+                        text: "Rad",
+                        textColor: .white,
+                        backgroundColor: .gray,
+                        width: buttonLayout.buttonWidth,
+                        height: buttonLayout.buttonHeight,
+                        action: {})
+            
+            
+        ]
+        
     }
     
     func selectButton(id: Int) {

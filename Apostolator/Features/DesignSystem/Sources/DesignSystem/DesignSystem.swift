@@ -13,6 +13,8 @@ public struct StandardButton: View {
     let radius: CGFloat
     let isSelected: Bool
     let staySelected: Bool
+    let subIndex: String?
+    let superIndex: String?
     let action: () -> Void
     
     public init(model: ButtonModel, isSelected: Bool, action: @escaping () -> Void) {
@@ -26,6 +28,8 @@ public struct StandardButton: View {
         self.isSelected = isSelected
         self.action = action
         self.staySelected = model.staySelected
+        self.subIndex = model.subIndex
+        self.superIndex = model.superIndex
     }
     
     
@@ -33,9 +37,17 @@ public struct StandardButton: View {
         Button {
             action()
         } label: {
-            Text(text)
+            if let subIndex, let superIndex {
+                AttributedLabel(attributedText: AttributedLabel.createCubeRoot(superScript: superIndex, subscript: subIndex))
+            } else if let subIndex {
+                AttributedLabel(attributedText: AttributedLabel.createSubScriptText(baseText: text, subScriptText: subIndex))
+            } else if let superIndex  {
+                AttributedLabel(attributedText: AttributedLabel.createSuperScriptText(baseText: text, superScriptText: superIndex))
+            } else {
+                Text(text)
                 .multilineTextAlignment(.center)
                 .font(.system(size: fontSize))
+            }
         }.buttonStyle(ApostolatorButton(width: width, height: height, backgroundColor: backgroundColor, textColor: textColor, isSelected: isSelected, radius: radius, staySelected: staySelected))
     }
 }
@@ -100,9 +112,11 @@ public struct ButtonModel: Identifiable {
     let height: CGFloat
     let radius: CGFloat
     let staySelected: Bool
+    let subIndex: String?
+    let superIndex: String?
     public let action: () -> Void
     
-    public init(id: Int, text: String, fontSize: CGFloat = 28, textColor: Color, backgroundColor: Color, width: CGFloat = 62, height: CGFloat = 62, radius: CGFloat = 100, staySelected: Bool = false, action: @escaping () -> Void) {
+    public init(id: Int, text: String, fontSize: CGFloat = 28, textColor: Color, backgroundColor: Color, width: CGFloat = 62, height: CGFloat = 62, radius: CGFloat = 100, staySelected: Bool = false, subIndex: String? = nil, superIndex: String? = nil, action: @escaping () -> Void) {
         self.text = text
         self.fontSize = fontSize
         self.textColor = textColor
@@ -113,5 +127,7 @@ public struct ButtonModel: Identifiable {
         self.height = height
         self.id = id
         self.staySelected = staySelected
+        self.subIndex = subIndex
+        self.superIndex = superIndex
     }
 }
