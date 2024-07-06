@@ -26,11 +26,11 @@ struct ContentView: View {
             }
         case .landscape:
             HStack {
-                VStack(alignment: .trailing) {
+                VStack(alignment: .leading) {
                     MainContent(viewModel: viewModel, orientationManager: orientationManager)
                 }
                     
-            }.frame(maxWidth: .infinity, alignment: .trailing)
+            }.frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }
@@ -68,7 +68,7 @@ struct PrimaryContent: View {
     }
     
     var body: some View {
-        VStack(alignment: .trailing) {
+        VStack(alignment: orientationManager.orientation == .portrait ? .trailing : .leading) {
             ScrollViewReader { scrollViewProxy in
                 List(viewModel.engine.results) { result in
                     HStack {
@@ -77,8 +77,9 @@ struct PrimaryContent: View {
                             .foregroundStyle(.primaryText)
                             .font(.system(size: viewModel.buttonLayout.scrollViewTextSize))
                             .opacity(0.5)
-                            .multilineTextAlignment(.trailing)
+                            
                             .accessibilityIdentifier("operationAgendaTXT")
+                            .frame(minWidth: 60,maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                     }
                 }
                 .listStyle(.plain)
@@ -90,8 +91,8 @@ struct PrimaryContent: View {
                         }
                     }
                 }
-            }
-        }.padding(.top)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        }.padding(.top).frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .leading)
         
         VStack(alignment: orientationManager.orientation == .landscape ?  .trailing : .center) {
             HStack {
@@ -132,7 +133,7 @@ struct PrimaryContent: View {
                         }
                     }
                 }
-            }.padding(.trailing, 40)
+            }.frame(maxWidth: .infinity, alignment: .leading).padding(.trailing, orientationManager.orientation == .portrait ? 40 : 0)
         }
     }
 }

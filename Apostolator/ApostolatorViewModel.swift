@@ -140,6 +140,7 @@ class ApostolatorViewModel: ObservableObject {
         [
             ButtonModel(id: 124,
                         text: "mr",
+                        fontSize: 20,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -147,6 +148,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 125,
                         text: "m-",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -154,6 +156,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 126,
                         text: "m+",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -161,6 +164,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 127,
                         text: "mc",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -168,6 +172,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 128,
                         text: ")",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -175,6 +180,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 129,
                         text: "(",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -187,6 +193,7 @@ class ApostolatorViewModel: ObservableObject {
         [
             ButtonModel(id: 118,
                         text: "10",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -195,6 +202,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 119,
                         text: "e",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -203,6 +211,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 120,
                         text: "x",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -211,6 +220,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 121,
                         text: "x",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -219,6 +229,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 122,
                         text: "x",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -227,6 +238,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 123,
                         text: "2",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -241,6 +253,7 @@ class ApostolatorViewModel: ObservableObject {
         [
             ButtonModel(id: 112,
                         text: "log",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -249,6 +262,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 113,
                         text: "ln",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -256,6 +270,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 114,
                         text: "",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -265,6 +280,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 115,
                         text: "",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -274,6 +290,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 116,
                         text: "",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -283,6 +300,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 117,
                         text: "",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -297,6 +315,7 @@ class ApostolatorViewModel: ObservableObject {
         [
             ButtonModel(id: 12313,
                         text: "EE",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -304,6 +323,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 107,
                         text: "e",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -311,6 +331,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 108,
                         text: "tan",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -318,6 +339,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 109,
                         text: "cos",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -325,6 +347,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 110,
                         text: "sin",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -332,6 +355,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 111,
                         text: "x!",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -344,6 +368,7 @@ class ApostolatorViewModel: ObservableObject {
         [
             ButtonModel(id: 100,
                         text: "Rand",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -351,6 +376,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 101,
                         text: "π",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -359,6 +385,7 @@ class ApostolatorViewModel: ObservableObject {
             
             ButtonModel(id: 103,
                         text: "tanh",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -367,6 +394,7 @@ class ApostolatorViewModel: ObservableObject {
             
             ButtonModel(id: 104,
                         text: "cosh",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -374,6 +402,7 @@ class ApostolatorViewModel: ObservableObject {
                         action: {}),
             ButtonModel(id: 105,
                         text: "sinh",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -382,6 +411,7 @@ class ApostolatorViewModel: ObservableObject {
             
             ButtonModel(id: 106,
                         text: "Rad",
+                        fontSize: 15,
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
@@ -415,11 +445,11 @@ struct ButtonLayout {
 
         switch orientation {
         case .landscape:
-            self.buttonWidth = 42
-            self.buttonHeight = 42
+            self.buttonWidth = 52
+            self.buttonHeight = 52
             self.separation = 15
             self.textSize = 30
-            self.scrollViewTextSize = 20
+            self.scrollViewTextSize = 15
             self.zerobuttonWidth = 100
             self.zerobuttonLayoutHeight = 42
         case .portrait:
