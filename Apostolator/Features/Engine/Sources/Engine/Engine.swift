@@ -43,7 +43,10 @@ public final class Engine: ObservableObject {
     @Published private var newRow: Bool = false
     @Published public var results: [ResultModel] = []
     @Published public var decimals: Int = 3
-    
+    @Published public var lastText: String = ""
+    @Published public var text: String = "0"
+    @Published public var currentAction: Action = .idle
+
     private lazy var numberFormmated: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -52,10 +55,21 @@ public final class Engine: ObservableObject {
         return formatter
     }()
     
+
+    public init() {}
+    
     
     public  func observeEvent(_ event: Event) {
         switch event {
         case .value:
+            
+            if text.count == 1 && text.contains("0") && event.currentValue == "0" {
+                return
+            }
+            
+            if text.count == 1, text.contains("0"), let char = event.currentValue.first, char.isNumber{
+                text = ""
+            }
             
             if event.currentValue == ",", text.last != "," {
                 text.append(",")
@@ -94,7 +108,7 @@ public final class Engine: ObservableObject {
         
         switch action {
         case .reset:
-            text = ""
+            text = "0"
             lastText = ""
             currentAction = .idle
             
@@ -183,11 +197,7 @@ public final class Engine: ObservableObject {
         currentAction = action
     }
 
-    @Published public var lastText: String = ""
-    @Published public var text: String = ""
-    @Published public var currentAction: Action = .idle
-    
-    public init() {}
+   
     
     private func add(value: String) -> String {
         var value: String = value
