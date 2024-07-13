@@ -25,7 +25,7 @@ public enum Event {
     }
 }
 
-public enum Action {
+public enum Action: Equatable {
     case split
     case multiply
     case add
@@ -36,16 +36,24 @@ public enum Action {
     case result
     case separator
     case idle
+    
+   case landscapeAction(LandscapeAction)
+}
+
+public enum LandscapeAction: Equatable {
+    case rand
+    case pi
 }
 
 
 public final class Engine: ObservableObject {
     @Published private var newRow: Bool = false
     @Published public var results: [ResultModel] = []
-    @Published public var decimals: Int = 3
+    @Published public var decimals: Int = 16
     @Published public var lastText: String = ""
     @Published public var text: String = "0"
     @Published public var currentAction: Action = .idle
+    private var maxNumberLength: Int = 11
 
     private lazy var numberFormmated: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -76,7 +84,7 @@ public final class Engine: ObservableObject {
                 return
             }
             
-            if String(event.currentValue).count <= 11 && lastText.count <= 11 {
+            if String(text).count <= maxNumberLength && lastText.count <= maxNumberLength {
                 text.append(String(event.currentValue))
                 text = formatNumberWithDots(text)
             }
@@ -97,7 +105,7 @@ public final class Engine: ObservableObject {
     
    
     private func react(to action: Action) {
-        guard lastText.count <= 11 else { return }
+        guard lastText.count <= maxNumberLength  else { return }
         if action != .separator {
             newRow = true
         }
@@ -189,6 +197,14 @@ public final class Engine: ObservableObject {
             
             resultModel.total = text
             results.append(resultModel)
+         
+        case .landscapeAction(let landscapeAction):
+            switch  landscapeAction {
+            case .rand:
+                text = formatNumberWithDots( "\(arc4random())")
+            case .pi:
+                text = "\(Double.pi)"
+            }
                 
         default:
             break
@@ -198,21 +214,15 @@ public final class Engine: ObservableObject {
     }
 
    
+    public func updateNumberLength(_ newValue: Int) {
+        self.react(to: .reset)
+        self.maxNumberLength = newValue
+    }
     
     private func add(value: String) -> String {
-        var value: String = value
-        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
-             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
-        }
-        value = value.replacingOccurrences(of: ",", with: ".")
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
+        guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue + doubleCurrentValue
-        if total < 1 {
-            return numberFormmated.string(from:  NSNumber(value: total)) ?? text
-        }
-        else {
-            return  NSNumber(value: total).stringValue
-        }
+        return  NSNumber(value: total).stringValue
     }
     
     private func percentage() -> String {
@@ -223,79 +233,33 @@ public final class Engine: ObservableObject {
     }
     
     private func substract(value: String) -> String {
-        var value: String = value
-        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
-             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
-        }
-        value = value.replacingOccurrences(of: ",", with: ".")
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
+        guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue - doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
+
     private func split(value: String) -> String {
-        var value: String = value
-        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
-             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
-        }
-        value = value.replacingOccurrences(of: ",", with: ".")
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
+        guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue / doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     private func multiply(value: String) -> String {
-        var value: String = value
-        if let intNumber = Int(value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
-             value = value.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: ".", with: "")
-        }
-        value = value.replacingOccurrences(of: ",", with: ".")
-        guard let doubleValue = Double(value), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: ".")) else { return value }
+        guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue * doubleCurrentValue
         return numberFormmated.string(from:  NSNumber(value: total)) ?? text
     }
     
     func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
-        // Remove any non-numeric characters
-        let cleanNumber = number
-        var decimals: String?
-       
-        
-        // Reverse the string for easier processing
-        let reversedString = String(cleanNumber.reversed())
-        if text.contains(",") {
-            decimals = text.split(separator: ",").map {String($0)}.first
-        }
-        
-        // Insert dots every three characters
-        var separatedReversedString = ""
-        if let intNumber = Int(number.replacingOccurrences(of: ".", with: "")), intNumber > 9999 {
-          
-                for (index, character) in reversedString.filter({$0.isNumber}).enumerated() {
-                    if index > 0 && index % 3 == 0 {
-                        separatedReversedString.append(".")
-                    }
-                    separatedReversedString.append(character)
-                }
-            
-           
-        } else {
-            separatedReversedString = reversedString
-        }
-        
-        // Reverse the string back to the original order
-        var formattedString = String(separatedReversedString.reversed())
-        
+        var formattedString = number
+        formattedString = Double(number.replacingOccurrences(of: ",", with: ""))?.formatted(.number.notation(.automatic)) ?? number
         if toggleValueType {
             if text.contains("-") {
                 return formattedString.replacingOccurrences(of: "-", with: "")
             } else {
-                formattedString = "-\(String(separatedReversedString.reversed()))"
+                formattedString = "-\(formattedString)"
             }
-        }
-        
-        if let decimals = decimals, !text.contains(",") {
-            formattedString.append(","+decimals)
         }
         return formattedString
     }

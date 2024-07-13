@@ -25,6 +25,7 @@ class ApostolatorViewModel: ObservableObject {
         self.engine = engine
         cancellable = orientation.$orientation.sink { [weak self] orientation in
             self?.engine.decimals = orientation == .landscape ? 12 : 3
+            self?.engine.updateNumberLength(orientation == .landscape ? 16 : 11)
         }
     }
     
@@ -373,7 +374,10 @@ class ApostolatorViewModel: ObservableObject {
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
-                        action: {}),
+                        action: {[weak self] in
+                            self?.engine.observeEvent(.action(.landscapeAction(.rand)))
+                            
+                        }),
             ButtonModel(id: 101,
                         text: "π",
                         fontSize: 15,
@@ -381,7 +385,10 @@ class ApostolatorViewModel: ObservableObject {
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
-                        action: {}),
+                        action: {[weak self] in
+                            self?.engine.observeEvent(.action(.landscapeAction(.pi)))
+                            
+                        }),
             
             ButtonModel(id: 103,
                         text: "tanh",
