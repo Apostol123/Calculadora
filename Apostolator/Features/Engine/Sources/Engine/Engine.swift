@@ -43,6 +43,12 @@ public enum Action: Equatable {
 public enum LandscapeAction: Equatable {
     case rand
     case pi
+    case tanh
+    case cosh
+    case sinh
+    case tan
+    case sin
+    case cos
 }
 
 
@@ -55,14 +61,6 @@ public final class Engine: ObservableObject {
     @Published public var currentAction: Action = .idle
     private var maxNumberLength: Int = 11
 
-    private lazy var numberFormmated: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = decimals
-        formatter.minimumFractionDigits = 0
-        return formatter
-    }()
-    
 
     public init() {}
     
@@ -84,7 +82,7 @@ public final class Engine: ObservableObject {
                 return
             }
             
-            if String(text).count <= maxNumberLength && lastText.count <= maxNumberLength {
+            if String(event.currentValue).count <= maxNumberLength && lastText.count <= maxNumberLength {
                 text.append(String(event.currentValue))
                 text = formatNumberWithDots(text)
             }
@@ -203,8 +201,41 @@ public final class Engine: ObservableObject {
             case .rand:
                 text = formatNumberWithDots( "\(arc4random())")
             case .pi:
-                text = "\(Double.pi)"
+                self.observeEvent(.value("\(Double.pi)"))
+                
+            case .tanh:
+                if text != "0" {
+                    self.observeEvent(.value("\(tanh(Double(text) ?? 0))"))
+                }
+                
+            case .cosh:
+                if text != "0" {
+                    self.observeEvent(.value("\(cosh(Double(text) ?? 0))"))
+                }
+                
+            case .sinh:
+                if text != "0" {
+                    self.observeEvent(.value("\(sinh(Double(text) ?? 0))"))
+                }
+        
+            case .tan:
+                if text != "0" {
+                    self.observeEvent(.value("\(tan(Double(text) ?? 0))"))
+                    
+                }
+                
+            case .sin:
+                if text != "0" {
+                    self.observeEvent(.value("\(sin(Double(text) ?? 0))"))
+                }
+                
+            case .cos:
+                if text != "0" {
+                    self.observeEvent(.value("\(cos(Double(text) ?? 0))"))
+                }
             }
+            
+            
                 
         default:
             break
@@ -229,31 +260,34 @@ public final class Engine: ObservableObject {
         let text = text.replacingOccurrences(of: ",", with: ".")
         guard let doubleCurrentValue = Double(text) else { return text }
         let total = doubleCurrentValue / 100
-        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
+        return NSNumber(value: total).stringValue
     }
     
     private func substract(value: String) -> String {
         guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue - doubleCurrentValue
-        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
+        return NSNumber(value: total).stringValue
     }
     
 
     private func split(value: String) -> String {
         guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue / doubleCurrentValue
-        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
+        return NSNumber(value: total).stringValue
     }
     
     private func multiply(value: String) -> String {
         guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")), let doubleCurrentValue = Double(text.replacingOccurrences(of: ",", with: "")) else { return value }
         let total = doubleValue * doubleCurrentValue
-        return numberFormmated.string(from:  NSNumber(value: total)) ?? text
+        return NSNumber(value: total).stringValue
     }
     
     func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
         var formattedString = number
-        formattedString = Double(number.replacingOccurrences(of: ",", with: ""))?.formatted(.number.notation(.automatic)) ?? number
+        if let doubleNumber = Double(number.replacingOccurrences(of: ",", with: "")), doubleNumber > 9999 || doubleNumber < 0{
+            formattedString = doubleNumber.formatted(.number.notation(.automatic))
+        }
+        
         if toggleValueType {
             if text.contains("-") {
                 return formattedString.replacingOccurrences(of: "-", with: "")
