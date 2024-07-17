@@ -49,6 +49,8 @@ public enum LandscapeAction: Equatable {
     case tan
     case sin
     case cos
+    case log10
+    case ln
 }
 
 
@@ -233,8 +235,16 @@ public final class Engine: ObservableObject {
                 if text != "0" {
                     self.observeEvent(.value("\(cos(Double(text) ?? 0))"))
                 }
-            }
+                
+            case .log10:
+                if text != "0" {
+                    self.observeEvent(.value("\(log10(Double(text) ?? 0))"))
+                }
             
+            case .ln:
+                if text != "0" {
+                    self.observeEvent(.value("\(log(Double(text) ?? 0))"))
+                }
             
                 
         default:
@@ -284,7 +294,7 @@ public final class Engine: ObservableObject {
     
     func formatNumberWithDots(_ number: String, toggleValueType: Bool = false) -> String {
         var formattedString = number
-        if let doubleNumber = Double(number.replacingOccurrences(of: ",", with: "")), doubleNumber > 9999 || doubleNumber < 0{
+        if let doubleNumber = Double(number.replacingOccurrences(of: ",", with: "")), doubleNumber > 9999 || doubleNumber < 0 {
             formattedString = doubleNumber.formatted(.number.notation(.automatic))
         }
         

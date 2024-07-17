@@ -260,7 +260,9 @@ class ApostolatorViewModel: ObservableObject {
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
                         subIndex: "10",
-                        action: {}),
+                        action: { [weak self] in
+                            self?.engine.observeEvent(.action(.landscapeAction(.log10)))
+                        }),
             ButtonModel(id: 113,
                         text: "ln",
                         fontSize: 15,
