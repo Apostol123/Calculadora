@@ -290,7 +290,8 @@ class ApostolatorViewModel: ObservableObject {
                         height: buttonLayout.buttonHeight,
                         subIndex: "x",
                         superIndex: "3",
-                        action: {}),
+                        action: {[weak self] in
+                            self?.engine.observeEvent(.action(.landscapeAction(.thirdPow)))}),
             ButtonModel(id: 116,
                         text: "",
                         fontSize: 15,
@@ -300,7 +301,8 @@ class ApostolatorViewModel: ObservableObject {
                         height: buttonLayout.buttonHeight,
                         subIndex: "x",
                         superIndex: "2",
-                        action: {}),
+                        action: {[weak self] in
+                            self?.engine.observeEvent(.action(.landscapeAction(.sqrt)))}),
             ButtonModel(id: 117,
                         text: "",
                         fontSize: 15,
@@ -310,7 +312,10 @@ class ApostolatorViewModel: ObservableObject {
                         height: buttonLayout.buttonHeight,
                         subIndex: "x",
                         superIndex: "1",
-                        action: {}),
+                        action: {
+                            [weak self] in
+                               self?.engine.observeEvent(.action(.landscapeAction(.firstPow)))
+                        }),
             ]
     }
     

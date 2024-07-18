@@ -51,6 +51,9 @@ public enum LandscapeAction: Equatable {
     case cos
     case log10
     case ln
+    case firstPow
+    case sqrt
+    case thirdPow
 }
 
 
@@ -219,7 +222,7 @@ public final class Engine: ObservableObject {
                 if text != "0" {
                     self.observeEvent(.value("\(sinh(Double(text) ?? 0))"))
                 }
-        
+                
             case .tan:
                 if text != "0" {
                     self.observeEvent(.value("\(tan(Double(text) ?? 0))"))
@@ -240,11 +243,27 @@ public final class Engine: ObservableObject {
                 if text != "0" {
                     self.observeEvent(.value("\(log10(Double(text) ?? 0))"))
                 }
-            
+                
             case .ln:
                 if text != "0" {
                     self.observeEvent(.value("\(log(Double(text) ?? 0))"))
                 }
+            
+            case .firstPow:
+                if text != "0" {
+                    self.observeEvent(.value("\(pow(Double(text) ?? 0, 1.0))"))
+                }
+                
+            case .sqrt:
+                if text != "0" {
+                    self.observeEvent(.value("\(sqrt(Double(text) ?? 0))"))
+                }
+                
+            case .thirdPow:
+                if text != "0" {
+                    self.observeEvent(.value("\(pow(Double(text) ?? 0, 1.0 / 3.0))"))
+                }
+            }
             
                 
         default:
