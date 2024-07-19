@@ -54,6 +54,9 @@ public enum LandscapeAction: Equatable {
     case firstPow
     case sqrt
     case thirdPow
+    case x2
+    case x3
+    case ex
 }
 
 
@@ -262,6 +265,19 @@ public final class Engine: ObservableObject {
             case .thirdPow:
                 if text != "0" {
                     self.observeEvent(.value("\(pow(Double(text) ?? 0, 1.0 / 3.0))"))
+                }
+            case .x2:
+                if text != "0" {
+                    self.observeEvent(.value("\(pow(Double(text) ?? 0, 2.0))"))
+                }
+            case .x3:
+                if text != "0" {
+                    self.observeEvent(.value("\(pow(Double(text) ?? 0, 3.0))"))
+                }
+                
+            case .ex:
+                if text != "0" {
+                    self.observeEvent(.value("\(exp(Double(text) ?? 0))"))
                 }
             }
             
