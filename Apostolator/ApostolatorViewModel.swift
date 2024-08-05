@@ -265,7 +265,10 @@ class ApostolatorViewModel: ObservableObject {
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
-                        action: {}),
+                        action: {
+                            [weak self] in
+                                self?.engine.observeEvent(.action(.landscapeAction(.ln)))
+                        }),
             ButtonModel(id: 114,
                         text: "",
                         fontSize: 15,
@@ -316,14 +319,6 @@ class ApostolatorViewModel: ObservableObject {
     
     private func secondRowLandscapeOnlyButtons() -> [ButtonModel] {
         [
-            ButtonModel(id: 12313,
-                        text: "EE",
-                        fontSize: 15,
-                        textColor: .white,
-                        backgroundColor: .gray,
-                        width: buttonLayout.buttonWidth,
-                        height: buttonLayout.buttonHeight,
-                        action: {}),
             ButtonModel(id: 107,
                         text: "e",
                         fontSize: 15,
@@ -331,7 +326,9 @@ class ApostolatorViewModel: ObservableObject {
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
-                        action: {}),
+                        action: { [weak self] in
+                                self?.engine.observeEvent(.action(.landscapeAction(.e)))
+                        }),
             ButtonModel(id: 108,
                         text: "tan",
                         fontSize: 15,
@@ -359,7 +356,8 @@ class ApostolatorViewModel: ObservableObject {
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
                         action: {[weak self] in
-                            self?.engine.observeEvent(.action(.landscapeAction(.sin)))}),
+                            self?.engine.observeEvent(.action(.landscapeAction(.sin)))
+                        }),
             ButtonModel(id: 111,
                         text: "x!",
                         fontSize: 15,
@@ -367,7 +365,9 @@ class ApostolatorViewModel: ObservableObject {
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
-                        action: {})
+                        action: { [weak self] in
+                                self?.engine.observeEvent(.action(.landscapeAction(.x)))
+                        })
         ]
     }
     
@@ -426,18 +426,7 @@ class ApostolatorViewModel: ObservableObject {
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
                         action: {[weak self] in
-                            self?.engine.observeEvent(.action(.landscapeAction(.sinh)))}),
-            
-            ButtonModel(id: 106,
-                        text: "Rad",
-                        fontSize: 15,
-                        textColor: .white,
-                        backgroundColor: .gray,
-                        width: buttonLayout.buttonWidth,
-                        height: buttonLayout.buttonHeight,
-                        action: {})
-            
-            
+                            self?.engine.observeEvent(.action(.landscapeAction(.sinh)))})
         ]
         
     }

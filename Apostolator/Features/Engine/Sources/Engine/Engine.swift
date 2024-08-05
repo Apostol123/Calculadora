@@ -57,6 +57,8 @@ public enum LandscapeAction: Equatable {
     case x2
     case x3
     case ex
+    case x
+    case e
 }
 
 
@@ -279,6 +281,14 @@ public final class Engine: ObservableObject {
                 if text != "0" {
                     self.observeEvent(.value("\(exp(Double(text) ?? 0))"))
                 }
+            
+            case .x:
+                if text != "0" {
+                    self.observeEvent(.value((factorialValueParser(value: text))))
+                }
+                
+            case .e:
+                    self.observeEvent(.value("\(M_E)"))
             }
             
                 
@@ -341,6 +351,19 @@ public final class Engine: ObservableObject {
             }
         }
         return formattedString
+    }
+    
+    func factorialValueParser(value: String) -> String {
+        guard let doubleValue = Double(value.replacingOccurrences(of: ",", with: "")) else { return value }
+        return NSNumber(value: factorialValue(fNumber: doubleValue)).stringValue
+    }
+    
+   private func factorialValue(fNumber: Double) -> Double {
+       if fNumber == 0{
+          return 1
+       } else {
+          return fNumber * factorialValue(fNumber:fNumber-1)
+       }
     }
 }
 
