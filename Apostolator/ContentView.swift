@@ -107,9 +107,9 @@ struct PrimaryContent: View {
             HStack {
                 Spacer()
                 if orientationManager.orientation == .landscape {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .center) {
                         ForEach(viewModel.landscapeButtons().indices, id: \.self) { rowIndex in
-                            HStack(spacing: viewModel.buttonLayout.separation) {
+                            HStack(alignment: .center, spacing: viewModel.buttonLayout.separation) {
                                 ForEach(viewModel.landscapeButtons()[rowIndex]) { button in
                                     StandardButton(model: button, isSelected: viewModel.selectedButtonId == button.id, action: {
                                         viewModel.selectButton(id: button.id)

@@ -129,7 +129,6 @@ class ApostolatorViewModel: ObservableObject {
     
     public func landscapeButtons() -> [[ButtonModel]] {
        [
-        fifthRowLandscapeOnlyButtons().reversed(),
         forthRowLandscapeOnlyButtons().reversed(),
         thirdRowLandscapeOnlyButtons().reversed(),
         secondRowLandscapeOnlyButtons().reversed(),
@@ -170,6 +169,7 @@ class ApostolatorViewModel: ObservableObject {
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
                         height: buttonLayout.buttonHeight,
+                        staySelected: true,
                         action: {}),
             ButtonModel(id: 128,
                         text: ")",
@@ -240,16 +240,7 @@ class ApostolatorViewModel: ObservableObject {
                         height: buttonLayout.buttonHeight,
                         superIndex: "2",
                         action: {[weak self] in
-                            self?.engine.observeEvent(.action(.landscapeAction(.x2)))}),
-            ButtonModel(id: 123,
-                        text: "2",
-                        fontSize: 15,
-                        textColor: .white,
-                        backgroundColor: .gray,
-                        width: buttonLayout.buttonWidth,
-                        height: buttonLayout.buttonHeight,
-                        superIndex: "nd",
-                        action: {}),
+                            self?.engine.observeEvent(.action(.landscapeAction(.x2)))})
         
         ]
     }
@@ -473,13 +464,13 @@ struct ButtonLayout {
 
         switch orientation {
         case .landscape:
-            self.buttonWidth = 52
-            self.buttonHeight = 52
+            self.buttonWidth = 48
+            self.buttonHeight = 48
             self.separation = 15
             self.textSize = 30
             self.scrollViewTextSize = 15
-            self.zerobuttonWidth = 100
-            self.zerobuttonLayoutHeight = 42
+            self.zerobuttonWidth = 95
+            self.zerobuttonLayoutHeight = 38
         case .portrait:
             self.buttonWidth = 62
             self.buttonHeight = 62
