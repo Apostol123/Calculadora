@@ -182,6 +182,7 @@ class ApostolatorViewModel: ObservableObject {
             ButtonModel(id: 129,
                         text: "(",
                         fontSize: 15,
+                        
                         textColor: .white,
                         backgroundColor: .gray,
                         width: buttonLayout.buttonWidth,
